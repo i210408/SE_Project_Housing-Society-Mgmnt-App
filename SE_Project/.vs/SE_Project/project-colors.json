@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "8237c42e-7d31-41f5-8719-b121f6ee62ae": {
+      "ProjectGuid": "8237c42e-7d31-41f5-8719-b121f6ee62ae",
+      "DisplayName": "DatabaseLayer",
+      "ColorIndex": 0
+    },
+    "9e623cff-e5fe-44fa-a872-d749562c8785": {
+      "ProjectGuid": "9e623cff-e5fe-44fa-a872-d749562c8785",
+      "DisplayName": "BusinessLogicLayer",
+      "ColorIndex": 1
+    },
+    "eb38a560-8b52-4dc5-811b-109a388a2d43": {
+      "ProjectGuid": "eb38a560-8b52-4dc5-811b-109a388a2d43",
+      "DisplayName": "UserInterfaceLayer",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}
