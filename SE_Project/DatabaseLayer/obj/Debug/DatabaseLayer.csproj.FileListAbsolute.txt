@@ -1,0 +1,9 @@
+E:\Assignments\SE\Project\SE_Project_0\SE_Project_Housing-Society-Mgmnt-App\SE_Project\DatabaseLayer\bin\Debug\DatabaseLayer.dll
+E:\Assignments\SE\Project\SE_Project_0\SE_Project_Housing-Society-Mgmnt-App\SE_Project\DatabaseLayer\bin\Debug\DatabaseLayer.pdb
+E:\Assignments\SE\Project\SE_Project_0\SE_Project_Housing-Society-Mgmnt-App\SE_Project\DatabaseLayer\bin\Debug\System.Data.SqlClient.dll
+E:\Assignments\SE\Project\SE_Project_0\SE_Project_Housing-Society-Mgmnt-App\SE_Project\DatabaseLayer\bin\Debug\System.Data.SqlClient.xml
+E:\Assignments\SE\Project\SE_Project_0\SE_Project_Housing-Society-Mgmnt-App\SE_Project\DatabaseLayer\obj\Debug\DatabaseLayer.csproj.AssemblyReference.cache
+E:\Assignments\SE\Project\SE_Project_0\SE_Project_Housing-Society-Mgmnt-App\SE_Project\DatabaseLayer\obj\Debug\DatabaseLayer.csproj.CoreCompileInputs.cache
+E:\Assignments\SE\Project\SE_Project_0\SE_Project_Housing-Society-Mgmnt-App\SE_Project\DatabaseLayer\obj\Debug\DatabaseLayer.csproj.CopyComplete
+E:\Assignments\SE\Project\SE_Project_0\SE_Project_Housing-Society-Mgmnt-App\SE_Project\DatabaseLayer\obj\Debug\DatabaseLayer.dll
+E:\Assignments\SE\Project\SE_Project_0\SE_Project_Housing-Society-Mgmnt-App\SE_Project\DatabaseLayer\obj\Debug\DatabaseLayer.pdb

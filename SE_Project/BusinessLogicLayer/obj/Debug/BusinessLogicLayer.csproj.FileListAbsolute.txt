@@ -1,0 +1,11 @@
+E:\Assignments\SE\Project\SE_Project_0\SE_Project_Housing-Society-Mgmnt-App\SE_Project\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.dll
+E:\Assignments\SE\Project\SE_Project_0\SE_Project_Housing-Society-Mgmnt-App\SE_Project\BusinessLogicLayer\bin\Debug\BusinessLogicLayer.pdb
+E:\Assignments\SE\Project\SE_Project_0\SE_Project_Housing-Society-Mgmnt-App\SE_Project\BusinessLogicLayer\bin\Debug\DatabaseLayer.dll
+E:\Assignments\SE\Project\SE_Project_0\SE_Project_Housing-Society-Mgmnt-App\SE_Project\BusinessLogicLayer\bin\Debug\System.Data.SqlClient.dll
+E:\Assignments\SE\Project\SE_Project_0\SE_Project_Housing-Society-Mgmnt-App\SE_Project\BusinessLogicLayer\bin\Debug\DatabaseLayer.pdb
+E:\Assignments\SE\Project\SE_Project_0\SE_Project_Housing-Society-Mgmnt-App\SE_Project\BusinessLogicLayer\bin\Debug\System.Data.SqlClient.xml
+E:\Assignments\SE\Project\SE_Project_0\SE_Project_Housing-Society-Mgmnt-App\SE_Project\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.AssemblyReference.cache
+E:\Assignments\SE\Project\SE_Project_0\SE_Project_Housing-Society-Mgmnt-App\SE_Project\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CoreCompileInputs.cache
+E:\Assignments\SE\Project\SE_Project_0\SE_Project_Housing-Society-Mgmnt-App\SE_Project\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CopyComplete
+E:\Assignments\SE\Project\SE_Project_0\SE_Project_Housing-Society-Mgmnt-App\SE_Project\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
+E:\Assignments\SE\Project\SE_Project_0\SE_Project_Housing-Society-Mgmnt-App\SE_Project\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb

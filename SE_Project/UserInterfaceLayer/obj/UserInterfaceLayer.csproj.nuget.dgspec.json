@@ -1,0 +1,109 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\Assignments\\SE\\Project\\SE_Project_0\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\UserInterfaceLayer\\UserInterfaceLayer.csproj": {}
+  },
+  "projects": {
+    "E:\\Assignments\\SE\\Project\\SE_Project_0\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
+      "restore": {
+        "projectUniqueName": "E:\\Assignments\\SE\\Project\\SE_Project_0\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
+        "projectName": "BusinessLogicLayer",
+        "projectPath": "E:\\Assignments\\SE\\Project\\SE_Project_0\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {
+              "E:\\Assignments\\SE\\Project\\SE_Project_0\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\DatabaseLayer\\DatabaseLayer.csproj": {
+                "projectPath": "E:\\Assignments\\SE\\Project\\SE_Project_0\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\DatabaseLayer\\DatabaseLayer.csproj"
+              }
+            }
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "E:\\Assignments\\SE\\Project\\SE_Project_0\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\DatabaseLayer\\DatabaseLayer.csproj": {
+      "restore": {
+        "projectUniqueName": "E:\\Assignments\\SE\\Project\\SE_Project_0\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\DatabaseLayer\\DatabaseLayer.csproj",
+        "projectName": "DatabaseLayer",
+        "projectPath": "E:\\Assignments\\SE\\Project\\SE_Project_0\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\DatabaseLayer\\DatabaseLayer.csproj",
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
+      },
+      "frameworks": {
+        "net472": {}
+      }
+    },
+    "E:\\Assignments\\SE\\Project\\SE_Project_0\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\UserInterfaceLayer\\UserInterfaceLayer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\Assignments\\SE\\Project\\SE_Project_0\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\UserInterfaceLayer\\UserInterfaceLayer.csproj",
+        "projectName": "UserInterfaceLayer",
+        "projectPath": "E:\\Assignments\\SE\\Project\\SE_Project_0\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\UserInterfaceLayer\\UserInterfaceLayer.csproj",
+        "packagesPath": "C:\\Users\\Hass114\\.nuget\\packages\\",
+        "outputPath": "E:\\Assignments\\SE\\Project\\SE_Project_0\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\UserInterfaceLayer\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Hass114\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "E:\\Assignments\\SE\\Project\\SE_Project_0\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
+                "projectPath": "E:\\Assignments\\SE\\Project\\SE_Project_0\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\BusinessLogicLayer\\BusinessLogicLayer.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "System.Data.SqlClient": {
+              "target": "Package",
+              "version": "[4.8.6, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
