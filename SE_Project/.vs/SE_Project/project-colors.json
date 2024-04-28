@@ -1,0 +1,16 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "9e623cff-e5fe-44fa-a872-d749562c8785": {
+      "ProjectGuid": "9e623cff-e5fe-44fa-a872-d749562c8785",
+      "DisplayName": "BusinessLogicLayer",
+      "ColorIndex": 0
+    },
+    "eb38a560-8b52-4dc5-811b-109a388a2d43": {
+      "ProjectGuid": "eb38a560-8b52-4dc5-811b-109a388a2d43",
+      "DisplayName": "UserInterfaceLayer",
+      "ColorIndex": 1
+    }
+  },
+  "NextColorIndex": 2
+}
