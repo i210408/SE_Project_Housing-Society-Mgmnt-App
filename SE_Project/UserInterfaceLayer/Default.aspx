@@ -13,14 +13,29 @@
     <main>
         <table>
   <tr>
-    <th>
-        <label>Name:</label>
-        <input type="text" runat="server" id="NameH"/>
-       <label>Password:</label>
-        <input type="password" runat="server" id="PasswH"/>
-        <asp:Button ID="LoginH" runat="server" Text="Submit" BorderStyle="Solid" ToolTip="Submit" OnClick="LoginH_Click"/> 
+      <div class="col">
+    <th style="text-align:left; height: 368px; width: 313px;">
+        <label>Name:</label>&nbsp;
+        <asp:TextBox ID="NameH" runat="server"></asp:TextBox>
+       <label>Password:</label> 
+        <asp:TextBox ID="PasswH" runat="server"></asp:TextBox>
+&nbsp;<asp:Button ID="LoginH" runat="server" Text="Login" BorderStyle="Solid" ToolTip="Submit" OnClick="LoginH_Click"/> 
+    </div>
     </th>
-    <th>&nbsp;</th>
+      <th style="width: 474px">
+          </br>
+      </th>
+    <th style="text-align:right; height: 368px;">
+        <div class="col">
+        <label>Name:</label>&nbsp;
+            <asp:TextBox ID="NameHS" runat="server"></asp:TextBox>
+       <label>Password:</label>
+            <asp:TextBox ID="PasswHS" runat="server"></asp:TextBox>
+&nbsp;Email:
+            <asp:TextBox ID="EmailHS" runat="server"></asp:TextBox>
+        <asp:Button ID="SignUpH" runat="server" Text="Sign In" BorderStyle="Solid" ToolTip="Submit" OnClick="SignUpH_Click"/> 
+    </div>
+    </th>
   </tr>
 </table>
 

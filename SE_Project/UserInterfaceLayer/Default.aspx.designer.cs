@@ -21,7 +21,7 @@ namespace UserInterfaceLayer
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText NameH;
+        protected global::System.Web.UI.WebControls.TextBox NameH;
 
         /// <summary>
         /// PasswH control.
@@ -30,7 +30,7 @@ namespace UserInterfaceLayer
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword PasswH;
+        protected global::System.Web.UI.WebControls.TextBox PasswH;
 
         /// <summary>
         /// LoginH control.
@@ -40,5 +40,41 @@ namespace UserInterfaceLayer
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button LoginH;
+
+        /// <summary>
+        /// NameHS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox NameHS;
+
+        /// <summary>
+        /// PasswHS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox PasswHS;
+
+        /// <summary>
+        /// EmailHS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox EmailHS;
+
+        /// <summary>
+        /// SignUpH control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button SignUpH;
     }
 }

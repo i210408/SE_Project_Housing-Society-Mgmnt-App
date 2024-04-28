@@ -19,8 +19,8 @@ namespace UserInterfaceLayer
         protected void LoginH_Click(object sender, EventArgs e)
         {
                 var controller1 = new Controller();
-            string Name = NameH.Value.ToString();
-                string Pass = PasswH.Value.ToString();
+            string Name = NameH.Text.ToString();
+                string Pass = PasswH.Text.ToString();
                 if (controller1.Login(Name, Pass) == true)
                 {
                     Response.Redirect("About.aspx");
@@ -31,5 +31,16 @@ namespace UserInterfaceLayer
                 }
             
         }
+
+        protected void SignUpH_Click(object sender, EventArgs e)
+        {
+            var controller1 = new Controller();
+            string Name = NameHS.Text.ToString();
+            string Pass = PasswHS.Text.ToString();
+            string Email = EmailHS.Text.ToString();
+            controller1.SignUp(Name,Pass, Email, "homeowner");
+
+        }
+
     }
 }
