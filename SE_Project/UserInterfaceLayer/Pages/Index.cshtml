@@ -1,10 +1,53 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "TOP OF THE MORNIN";//This is to change the text on the tab
+    ViewData["Title"] = "Login Page";//This is to change the text on the tab
 }
+<table>
+    <tr>
+        <th style="text-align:left;">
+            <div class="container">
+                <main role="main" class="pb-3">
+                    <div class="text-left">
+                        <h1 class="display-4">Homeowner Login:</h1>
+                    </div>
+                    <div class="text-left">
+                        <label for="Email">Email:</label>
+                        <input type="text" id="Name" name="Name">
+                    </div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+                    <div>
+                        <label for="Passw">Password: </label>
+                        <input type="password" id="Passw" name="passw">
+                    </div>
+                    <div>
+                        <div>
+                            <button type="button">Login</button>
+                        </div>
+                    </div>
+        </th>
+        <th style="text-align:right;">
+            <div class="container">
+                <main role="main" class="pb-3">
+                    <div class="text-left">
+                        <h1 class="display-4">Admin Login:</h1>
+                    </div>
+                    <div class="text-left">
+                        <label for="Email">Email:</label>
+                        <input type="text" id="Name" name="Name">
+                    </div>
+
+                    <div>
+                        <label for="Passw">Password: </label>
+                        <input type="password" id="Passw" name="passw">
+                    </div>
+                    <div>
+                        <div>
+                            <button type="button">Login</button>
+                        </div>
+                    </div>
+        </th>
+    </tr>
+</table>
+
+

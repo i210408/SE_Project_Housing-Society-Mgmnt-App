@@ -1,8 +1,51 @@
 ﻿@page
-@model PrivacyModel
+@model IndexModel
 @{
-    ViewData["Title"] = "Privacy Policy";
+    ViewData["Title"] = "Sign Up Page";//This is to change the text on the tab
 }
-<h1>@ViewData["Title"]</h1>
+<table>
+    <tr>
+        <th style="text-align:left;">
+            <div class="container">
+                <main role="main" class="pb-3">
+                    <div class="text-left">
+                        <h1 class="display-4">Homeowner Sign Up:</h1>
+                    </div>
+                    <div class="text-left">
+                        <label for="Email">Email:</label>
+                        <input type="text" id="Name" name="Name">
+                    </div>
 
-<p>Use this page to detail your site's privacy policy.</p>
+                    <div>
+                        <label for="Passw">Password: </label>
+                        <input type="password" id="Passw" name="passw">
+                    </div>
+                    <div>
+                        <div>
+                            <button type="button">Login</button>
+                        </div>
+                    </div>
+        </th>
+        <th style="text-align:right;">
+            <div class="container">
+                <main role="main" class="pb-3">
+                    <div class="text-left">
+                        <h1 class="display-4">Admin Sign Up:</h1>
+                    </div>
+                    <div class="text-left">
+                        <label for="Email">Email:</label>
+                        <input type="text" id="Name" name="Name">
+                    </div>
+
+                    <div>
+                        <label for="Passw">Password: </label>
+                        <input type="password" id="Passw" name="passw">
+                    </div>
+                    <div>
+                        <div>
+                            <button type="button">Login</button>
+                        </div>
+                    </div>
+        </th>
+    </tr>
+</table>

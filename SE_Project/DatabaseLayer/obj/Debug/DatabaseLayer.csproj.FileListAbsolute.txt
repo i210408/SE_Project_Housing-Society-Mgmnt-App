@@ -16,3 +16,12 @@ Z:\se\SE_Project_Housing-Society-Mgmnt-App\SE_Project\DatabaseLayer\obj\Debug\Da
 Z:\se\SE_Project_Housing-Society-Mgmnt-App\SE_Project\DatabaseLayer\obj\Debug\DatabaseLayer.csproj.CopyComplete
 Z:\se\SE_Project_Housing-Society-Mgmnt-App\SE_Project\DatabaseLayer\obj\Debug\DatabaseLayer.dll
 Z:\se\SE_Project_Housing-Society-Mgmnt-App\SE_Project\DatabaseLayer\obj\Debug\DatabaseLayer.pdb
+C:\Users\lunas\Documents\Newfolder2\SE_Project_Housing-Society-Mgmnt-App\SE_Project\DatabaseLayer\bin\Debug\DatabaseLayer.dll
+C:\Users\lunas\Documents\Newfolder2\SE_Project_Housing-Society-Mgmnt-App\SE_Project\DatabaseLayer\bin\Debug\DatabaseLayer.pdb
+C:\Users\lunas\Documents\Newfolder2\SE_Project_Housing-Society-Mgmnt-App\SE_Project\DatabaseLayer\bin\Debug\System.Data.SqlClient.dll
+C:\Users\lunas\Documents\Newfolder2\SE_Project_Housing-Society-Mgmnt-App\SE_Project\DatabaseLayer\bin\Debug\System.Data.SqlClient.xml
+C:\Users\lunas\Documents\Newfolder2\SE_Project_Housing-Society-Mgmnt-App\SE_Project\DatabaseLayer\obj\Debug\DatabaseLayer.csproj.AssemblyReference.cache
+C:\Users\lunas\Documents\Newfolder2\SE_Project_Housing-Society-Mgmnt-App\SE_Project\DatabaseLayer\obj\Debug\DatabaseLayer.csproj.CoreCompileInputs.cache
+C:\Users\lunas\Documents\Newfolder2\SE_Project_Housing-Society-Mgmnt-App\SE_Project\DatabaseLayer\obj\Debug\DatabaseLayer.csproj.CopyComplete
+C:\Users\lunas\Documents\Newfolder2\SE_Project_Housing-Society-Mgmnt-App\SE_Project\DatabaseLayer\obj\Debug\DatabaseLayer.dll
+C:\Users\lunas\Documents\Newfolder2\SE_Project_Housing-Society-Mgmnt-App\SE_Project\DatabaseLayer\obj\Debug\DatabaseLayer.pdb
