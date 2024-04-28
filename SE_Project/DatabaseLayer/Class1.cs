@@ -60,16 +60,15 @@ namespace DatabaseLayer
 
 
 
-        public static void InsertFeedback(int userId, int providerId, int bookingId, string feedbackText, int feedbackRating)
+        public static void InsertFeedback(int userId, int providerId, int serviceId, string feedbackText, int feedbackRating)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-            
-                string insertFeedbackQuery = "INSERT INTO Feedback (user_id, provider_id, booking_id, feedback_text, feedback_rating) VALUES (@UserId, @ProviderId, @BookingId, @FeedbackText, @FeedbackRating)";
+                string insertFeedbackQuery = "INSERT INTO Feedback (user_id, provider_id, service_id, feedback_text, feedback_rating) VALUES (@UserId, @ProviderId, @ServiceId, @FeedbackText, @FeedbackRating)";
                 SqlCommand command = new SqlCommand(insertFeedbackQuery, connection);
                 command.Parameters.AddWithValue("@UserId", userId);
                 command.Parameters.AddWithValue("@ProviderId", providerId);
-                command.Parameters.AddWithValue("@BookingId", bookingId);
+                command.Parameters.AddWithValue("@ServiceId", serviceId);
                 command.Parameters.AddWithValue("@FeedbackText", feedbackText);
                 command.Parameters.AddWithValue("@FeedbackRating", feedbackRating);
 
@@ -141,6 +140,89 @@ namespace DatabaseLayer
 
             return feedbacks;
         }
+
+
+        public static void InsertSuggestion(int userId, string suggestionText)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string insertSuggestionQuery = "INSERT INTO Suggestions (user_id, suggestion_text) VALUES (@UserId, @SuggestionText)";
+                SqlCommand command = new SqlCommand(insertSuggestionQuery, connection);
+                command.Parameters.AddWithValue("@UserId", userId);
+                command.Parameters.AddWithValue("@SuggestionText", suggestionText);
+
+                connection.Open();
+                int rowsAffected = command.ExecuteNonQuery();
+                Console.WriteLine($"{rowsAffected} row(s) inserted into Suggestions table.");
+            }
+        }
+
+
+        public static List<string> GetAllSuggestions()
+        {
+            List<string> suggestions = new List<string>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string retrieveAllSuggestionsQuery = "SELECT suggestion_text FROM Suggestions";
+
+                SqlCommand command = new SqlCommand(retrieveAllSuggestionsQuery, connection);
+
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        string suggestion = reader.GetString(0);
+                        suggestions.Add(suggestion);
+                    }
+                }
+                else
+                {
+                    suggestions.Add("No suggestions exist.");
+                }
+            }
+
+            return suggestions;
+        }
+
+
+        public static List<string> GetSuggestionsByUserId(int userId)
+        {
+            List<string> suggestions = new List<string>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string retrieveSuggestionsByUserIdQuery = "SELECT suggestion_text FROM Suggestions WHERE user_id = @UserId";
+
+                SqlCommand command = new SqlCommand(retrieveSuggestionsByUserIdQuery, connection);
+                command.Parameters.AddWithValue("@UserId", userId);
+
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        string suggestion = reader.GetString(0);
+                        suggestions.Add(suggestion);
+                    }
+                }
+                else
+                {
+                    suggestions.Add("No suggestions exist for this user.");
+                }
+            }
+
+            return suggestions;
+        }
+
+
 
     }
 }
