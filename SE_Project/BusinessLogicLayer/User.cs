@@ -25,6 +25,11 @@ namespace BusinessLogicLayer
             return password;
         }
 
+        public void SetUsername(string userName)
+        {
+            this.userName=userName;
+        }
+
     }
 
 }
