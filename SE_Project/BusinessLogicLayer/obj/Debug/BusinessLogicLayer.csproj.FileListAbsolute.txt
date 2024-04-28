@@ -28,6 +28,6 @@ C:\Users\lunas\Documents\Newfolder2\SE_Project_Housing-Society-Mgmnt-App\SE_Proj
 C:\Users\lunas\Documents\Newfolder2\SE_Project_Housing-Society-Mgmnt-App\SE_Project\BusinessLogicLayer\bin\Debug\System.Data.SqlClient.xml
 C:\Users\lunas\Documents\Newfolder2\SE_Project_Housing-Society-Mgmnt-App\SE_Project\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.AssemblyReference.cache
 C:\Users\lunas\Documents\Newfolder2\SE_Project_Housing-Society-Mgmnt-App\SE_Project\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CoreCompileInputs.cache
-C:\Users\lunas\Documents\Newfolder2\SE_Project_Housing-Society-Mgmnt-App\SE_Project\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.csproj.CopyComplete
 C:\Users\lunas\Documents\Newfolder2\SE_Project_Housing-Society-Mgmnt-App\SE_Project\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.dll
 C:\Users\lunas\Documents\Newfolder2\SE_Project_Housing-Society-Mgmnt-App\SE_Project\BusinessLogicLayer\obj\Debug\BusinessLogicLayer.pdb
+C:\Users\lunas\Documents\Newfolder2\SE_Project_Housing-Society-Mgmnt-App\SE_Project\BusinessLogicLayer\obj\Debug\Business.450209FB.Up2Date

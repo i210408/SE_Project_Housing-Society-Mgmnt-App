@@ -503,3 +503,6 @@ CREATE TABLE Suggestions (
     suggestion_text VARCHAR(MAX) NOT NULL,
     FOREIGN KEY (user_id) REFERENCES dbo.Users(user_id)
 );
+
+select * from users
+insert into Users values('Youser', 'Passw','E@Email.com','homeowner');
