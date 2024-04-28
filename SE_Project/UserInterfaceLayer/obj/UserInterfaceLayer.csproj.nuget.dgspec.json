@@ -1,19 +1,19 @@
 {
   "format": 1,
   "restore": {
-    "Z:\\se\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\UserInterfaceLayer\\UserInterfaceLayer.csproj": {}
+    "E:\\Assignments\\SE\\Project\\SE_Project_0\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\UserInterfaceLayer\\UserInterfaceLayer.csproj": {}
   },
   "projects": {
-    "Z:\\se\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
+    "E:\\Assignments\\SE\\Project\\SE_Project_0\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
       "restore": {
-        "projectUniqueName": "Z:\\se\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
+        "projectUniqueName": "E:\\Assignments\\SE\\Project\\SE_Project_0\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
         "projectName": "BusinessLogicLayer",
-        "projectPath": "Z:\\se\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
+        "projectPath": "E:\\Assignments\\SE\\Project\\SE_Project_0\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\BusinessLogicLayer\\BusinessLogicLayer.csproj",
         "frameworks": {
           "net472": {
             "projectReferences": {
-              "Z:\\se\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\DatabaseLayer\\DatabaseLayer.csproj": {
-                "projectPath": "Z:\\se\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\DatabaseLayer\\DatabaseLayer.csproj"
+              "E:\\Assignments\\SE\\Project\\SE_Project_0\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\DatabaseLayer\\DatabaseLayer.csproj": {
+                "projectPath": "E:\\Assignments\\SE\\Project\\SE_Project_0\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\DatabaseLayer\\DatabaseLayer.csproj"
               }
             }
           }
@@ -23,11 +23,11 @@
         "net472": {}
       }
     },
-    "Z:\\se\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\DatabaseLayer\\DatabaseLayer.csproj": {
+    "E:\\Assignments\\SE\\Project\\SE_Project_0\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\DatabaseLayer\\DatabaseLayer.csproj": {
       "restore": {
-        "projectUniqueName": "Z:\\se\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\DatabaseLayer\\DatabaseLayer.csproj",
+        "projectUniqueName": "E:\\Assignments\\SE\\Project\\SE_Project_0\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\DatabaseLayer\\DatabaseLayer.csproj",
         "projectName": "DatabaseLayer",
-        "projectPath": "Z:\\se\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\DatabaseLayer\\DatabaseLayer.csproj",
+        "projectPath": "E:\\Assignments\\SE\\Project\\SE_Project_0\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\DatabaseLayer\\DatabaseLayer.csproj",
         "frameworks": {
           "net472": {
             "projectReferences": {}
@@ -38,17 +38,17 @@
         "net472": {}
       }
     },
-    "Z:\\se\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\UserInterfaceLayer\\UserInterfaceLayer.csproj": {
+    "E:\\Assignments\\SE\\Project\\SE_Project_0\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\UserInterfaceLayer\\UserInterfaceLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "Z:\\se\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\UserInterfaceLayer\\UserInterfaceLayer.csproj",
+        "projectUniqueName": "E:\\Assignments\\SE\\Project\\SE_Project_0\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\UserInterfaceLayer\\UserInterfaceLayer.csproj",
         "projectName": "UserInterfaceLayer",
-        "projectPath": "Z:\\se\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\UserInterfaceLayer\\UserInterfaceLayer.csproj",
-        "packagesPath": "C:\\Users\\Gaming PC\\.nuget\\packages\\",
-        "outputPath": "Z:\\se\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\UserInterfaceLayer\\obj\\",
+        "projectPath": "E:\\Assignments\\SE\\Project\\SE_Project_0\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\UserInterfaceLayer\\UserInterfaceLayer.csproj",
+        "packagesPath": "C:\\Users\\Hass114\\.nuget\\packages\\",
+        "outputPath": "E:\\Assignments\\SE\\Project\\SE_Project_0\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\UserInterfaceLayer\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Gaming PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Hass114\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -62,8 +62,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "Z:\\se\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
-                "projectPath": "Z:\\se\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\BusinessLogicLayer\\BusinessLogicLayer.csproj"
+              "E:\\Assignments\\SE\\Project\\SE_Project_0\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
+                "projectPath": "E:\\Assignments\\SE\\Project\\SE_Project_0\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\BusinessLogicLayer\\BusinessLogicLayer.csproj"
               }
             }
           }
@@ -89,8 +89,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -102,7 +101,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
