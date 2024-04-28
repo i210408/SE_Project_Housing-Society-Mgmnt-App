@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DatabaseLayer
 {
-    internal class Class1
+    public class Class1
     {
        
         static string connectionString = "Data Source=AZHANSPC\\SQLEXPRESS;Initial Catalog=df;Integrated Security=True";
@@ -21,7 +21,7 @@ namespace DatabaseLayer
 
 
 
-        static void InsertUserData(string username, string password, string email, string userType)
+        public static void InsertUserData(string username, string password, string email, string userType)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -40,7 +40,7 @@ namespace DatabaseLayer
         }
 
 
-        static bool RetrieveAndCheckUserData(string username, string password)
+        public static bool RetrieveAndCheckUserData(string username, string password)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
