@@ -502,19 +502,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\lunas\\.nuget\\packages\\": {}
+    "C:\\Users\\Gaming PC\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\lunas\\Documents\\New folder\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\UserInterfaceLayer\\UserInterfaceLayer.csproj",
+      "projectUniqueName": "Z:\\se\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\UserInterfaceLayer\\UserInterfaceLayer.csproj",
       "projectName": "UserInterfaceLayer",
-      "projectPath": "C:\\Users\\lunas\\Documents\\New folder\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\UserInterfaceLayer\\UserInterfaceLayer.csproj",
-      "packagesPath": "C:\\Users\\lunas\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\lunas\\Documents\\New folder\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\UserInterfaceLayer\\obj\\",
+      "projectPath": "Z:\\se\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\UserInterfaceLayer\\UserInterfaceLayer.csproj",
+      "packagesPath": "C:\\Users\\Gaming PC\\.nuget\\packages\\",
+      "outputPath": "Z:\\se\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\UserInterfaceLayer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\lunas\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Gaming PC\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -528,8 +528,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\lunas\\Documents\\New folder\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
-              "projectPath": "C:\\Users\\lunas\\Documents\\New folder\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\BusinessLogicLayer\\BusinessLogicLayer.csproj"
+            "Z:\\se\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\BusinessLogicLayer\\BusinessLogicLayer.csproj": {
+              "projectPath": "Z:\\se\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\BusinessLogicLayer\\BusinessLogicLayer.csproj"
             }
           }
         }
@@ -568,7 +568,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
