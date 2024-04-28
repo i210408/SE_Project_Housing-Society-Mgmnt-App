@@ -15,5 +15,16 @@ namespace BusinessLogicLayer
             this.userName = userName;
             this.password = password;
         }
+
+        public string GetUserName()
+        {
+            return userName;
+        }
+        public string GetPassword()
+        {
+            return password;
+        }
+
     }
+
 }
