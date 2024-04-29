@@ -521,3 +521,16 @@ select * from users
 insert into Users values('Youser', 'Passw','E@Email.com','homeowner');
 
 
+-- Create the Advertisements table
+CREATE TABLE Advertisements (
+    advertisement_id INT IDENTITY(1,1) PRIMARY KEY,
+    user_id INT NOT NULL,
+    advertisement_text VARCHAR(MAX) NOT NULL,
+    advertisement_date DATETIME NOT NULL DEFAULT GETDATE()
+);
+
+-- Add foreign key constraints
+ALTER TABLE dbo.Advertisements ADD CONSTRAINT FK_Advertisements_Users FOREIGN KEY (user_id) REFERENCES dbo.Users(user_id);
+
+
+select * from Advertisements
