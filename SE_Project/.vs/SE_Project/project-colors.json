@@ -15,7 +15,12 @@
       "ProjectGuid": "8237c42e-7d31-41f5-8719-b121f6ee62ae",
       "DisplayName": "DatabaseLayer",
       "ColorIndex": 2
+    },
+    "48f7965c-7b65-40e1-927f-f581d7bdba73": {
+      "ProjectGuid": "48f7965c-7b65-40e1-927f-f581d7bdba73",
+      "DisplayName": "UserInterfaceLayer",
+      "ColorIndex": 3
     }
   },
-  "NextColorIndex": 3
+  "NextColorIndex": 4
 }
