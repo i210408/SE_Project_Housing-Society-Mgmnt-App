@@ -11,7 +11,7 @@ namespace BusinessLogicLayer
     {
         public static List<string> RetrieveAllSuggestions()
         {
-            return DB.GetAllSuggestions();
+            return null; // DB.GetAllSuggestions();
         }
     }
 }
