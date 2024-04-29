@@ -8,10 +8,10 @@ namespace BusinessLogicLayer
 {
     internal class User
     {
-        string userName;
-        string password;
-        string email;
-        string type;
+        private string userName;
+        private string password;
+        private string email;
+        private string type;
 
         User(string userName, string password, string email, string type)
         {
@@ -19,6 +19,14 @@ namespace BusinessLogicLayer
             this.password = password;
             this.email = email;
             this.type = type;   
+        }
+
+        User()
+        {
+            this.userName = " ";
+            this.password = " ";
+            this.email = " ";
+            this.type = " ";
         }
 
         public string GetUserName()
@@ -30,11 +38,35 @@ namespace BusinessLogicLayer
             return password;
         }
 
+        public string GetEmail()
+        {
+            return email;
+        }
+
+        public string GetUserType()
+        {
+            return type;
+        }
+
         public void SetUsername(string userName)
         {
             this.userName=userName;
         }
 
+        public void SetPassword(string password)
+        {
+            this.password=password;
+        }
+
+        public void SetEmail(string email)
+        {
+            this.email=email;
+        }
+
+        public void SetType(string type)
+        {
+            this.type=type;
+        }
 
     }
 
