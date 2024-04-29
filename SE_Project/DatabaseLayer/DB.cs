@@ -366,9 +366,93 @@ namespace DatabaseLayer
             }
         }
 
+
+
+        public static List<(string notificationText, DateTime notificationDate)> GetNotifications()
+        {
+            List<(string notificationText, DateTime notificationDate)> notifications = new List<(string notificationText, DateTime notificationDate)>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string retrieveNotificationsQuery = "SELECT notification_text, notification_date FROM Notifications";
+
+                SqlCommand command = new SqlCommand(retrieveNotificationsQuery, connection);
+
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        string notificationText = reader.GetString(0);
+                        DateTime notificationDate = reader.GetDateTime(1);
+
+                        notifications.Add((notificationText, notificationDate));
+                    }
+                }
+            }
+
+            return notifications;
+        }
+
+        public static void AddAdvertisement(int userId, string advertisementText)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string insertAdvertisementQuery = "INSERT INTO Advertisements (user_id, advertisement_text) VALUES (@UserId, @AdvertisementText)";
+
+                SqlCommand command = new SqlCommand(insertAdvertisementQuery, connection);
+                command.Parameters.AddWithValue("@UserId", userId);
+                command.Parameters.AddWithValue("@AdvertisementText", advertisementText);
+
+                connection.Open();
+
+                int rowsAffected = command.ExecuteNonQuery();
+
+                Console.WriteLine($"{rowsAffected} advertisement(s) added.");
+            }
+        }
+
+        public static List<string> GetAdvertisements()
+        {
+            List<string> advertisements = new List<string>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string retrieveAdvertisementsQuery = "SELECT advertisement_text, advertisement_date FROM Advertisements";
+
+                SqlCommand command = new SqlCommand(retrieveAdvertisementsQuery, connection);
+
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        string advertisementText = reader.GetString(0);
+                        DateTime advertisementDate = reader.GetDateTime(1);
+
+                        string advertisementMessage = $"Advertisement: {advertisementText}, Date: {advertisementDate}";
+
+                        advertisements.Add(advertisementMessage);
+                    }
+                }
+                else
+                {
+                    advertisements.Add("No advertisements found.");
+                }
+            }
+
+            return advertisements;
+        }
+
     }
 
-   
+
 
 }
 
