@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DatabaseLayer
 {
-    public class Class1
+    public class DB
     {
        
         static string connectionString = "Data Source=LAPTOP-R7A4A3IR\\SQLEXPRESS;Initial Catalog=df;Integrated Security=True";
