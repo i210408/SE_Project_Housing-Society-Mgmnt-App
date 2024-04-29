@@ -39,6 +39,16 @@ namespace BusinessLogicLayer
             return true;
         }
 
+        // Delete Homeowner account.
+
+        public bool DeleteHomeowner(string userName)
+        {
+            // Returns true if the account existed and has been deleted.
+            // Returns false if the account didn't exist.
+
+            return AccountManager.DeleteUser(userName);
+        }
+
         // Insert Feedback.
 
         public void InsertFeedback(int providerID, string serviceName, string feedbackText, int feedbackRating)
@@ -79,5 +89,34 @@ namespace BusinessLogicLayer
         {
             return SuggestionManager.RetrieveSuggestionsByUser(userName);
         }
+
+        // Issue Bills to a user.
+
+        public static void IssueBill(string userName, decimal amount, int days)
+        {
+            // Amount: Money to be paid.
+            // Days: Number of days till due date from the issue date.
+
+            BillsManager.IssueBill(userName, amount, days);
+        }
+
+        // Broadcast Notification.
+
+        public void BroadcastNotifications(string notificationText)
+        {
+            int userID = accountManager.currentUser.GetUserID();
+            NotificationManager.InsertNotification(userID, notificationText);
+        }
+
+        // View Notifications.
+
+        public static List<(string notificationText, DateTime notificationDate)> ViewNotifications()
+        {
+            // Returns null if no notifications found in the database.
+
+            return NotificationManager.RetrieveNotifications();
+        }
+
+
     }
 }

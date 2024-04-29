@@ -48,5 +48,15 @@ namespace BusinessLogicLayer
             Console.WriteLine("Current user added.");
         }
 
+        public static bool DeleteUser(string userName)
+        {
+            if(DB.GetHomeownerIdByName(userName) == -1)
+            {
+                return false;
+            }
+            DB.DeleteHomeowner(userName);
+            return true;
+        }
+
     }
 }
