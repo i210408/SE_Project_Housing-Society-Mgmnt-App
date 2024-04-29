@@ -22,5 +22,15 @@ namespace BusinessLogicLayer
         {
             AccountManager.InsertUser(userName, password, email, type);
         }
+
+        public static List<string> ViewSuggestions()
+        {
+            return SuggestionManager.RetrieveAllSuggestions();
+        }
+
+        public static List<string> ViewFeedback()
+        {
+            return FeedbackManager.RetrieveAllFeedbacks();
+        }
     }
 }
