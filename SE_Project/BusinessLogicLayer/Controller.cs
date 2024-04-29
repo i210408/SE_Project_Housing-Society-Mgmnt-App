@@ -11,7 +11,7 @@ namespace BusinessLogicLayer
         // Login to the application.
         public bool Login(string userName, string password)
         {
-            if(User.IfUserExists(userName, password))
+            if(AccountManager.IfUserExists(userName, password))
                 return true;
             else return false;
 
@@ -20,7 +20,7 @@ namespace BusinessLogicLayer
         // Create a new account.
         public void SignUp(string userName, string password, string email, string type)
         {
-            User.InsertUser(userName, password, email, type);
+            AccountManager.InsertUser(userName, password, email, type);
         }
     }
 }
