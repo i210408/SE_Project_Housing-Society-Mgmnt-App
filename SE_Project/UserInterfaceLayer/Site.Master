@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 <html lang="en">
-<head runat="server">
+<head runat="server" style="background-color:powderblue">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - My ASP.NET Application</title>
@@ -14,9 +14,11 @@
 
     <webopt:bundlereference runat="server" path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+            <img src="border.jpg" />
+
 
 </head>
-<body>
+<body style="background-color:powderblue">
     <form runat="server">
         <asp:ScriptManager runat="server">
             <Scripts>
@@ -58,7 +60,7 @@
             </asp:ContentPlaceHolder>
             <hr />
             <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+                <p>&copy; <%: DateTime.Now.Year %> - Housing Society Application</p>
             </footer>
         </div>
     </form>
