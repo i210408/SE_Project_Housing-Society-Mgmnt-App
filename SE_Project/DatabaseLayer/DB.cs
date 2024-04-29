@@ -361,12 +361,14 @@ namespace DatabaseLayer
                 int rowsAffected = command.ExecuteNonQuery();
 
                 Console.WriteLine($"{rowsAffected} notification(s) sent.");
+                Console.WriteLine($"{rowsAffected} notification(s) sent.");
+                Console.WriteLine($"{rowsAffected} notification(s) sent.");
             }
         }
 
     }
 
-
+   
 
 }
 
