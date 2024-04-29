@@ -39,11 +39,14 @@ namespace BusinessLogicLayer
             return true;
         }
 
-        // View suggestions provided by users.
-        public static List<string> ViewSuggestions()
+        // Insert Feedback.
+
+        public void InsertFeedback(int providerID, string serviceName, string feedbackText, int feedbackRating)
         {
-            return SuggestionManager.RetrieveAllSuggestions();
+            int currentUser = accountManager.currentUser.GetUserID();
+            FeedbackManager.InsertFeedback(currentUser, providerID, serviceName, feedbackText, feedbackRating);
         }
+        
 
         // View feedback provided by all users for all services.
         public static List<string> ViewFeedback()
@@ -54,6 +57,27 @@ namespace BusinessLogicLayer
         public static List<string> ViewFeedbackByUser(string username)
         {
             return FeedbackManager.RetrieveFeedbackByUser(username);
+        }
+
+        // Insert Suggestion.
+
+        public void InsertSuggestion(string suggestion)
+        {
+            int currentUser = accountManager.currentUser.GetUserID();
+            SuggestionManager.InsertSuggestions(currentUser, suggestion);
+        }
+
+        // View suggestions provided by users.
+        public static List<string> ViewSuggestions()
+        {
+            return SuggestionManager.RetrieveAllSuggestions();
+        }
+
+        // Get suggestions by a specific user.
+
+        public static List<string> ViewSuggestionsByUser(string userName)
+        {
+            return SuggestionManager.RetrieveSuggestionsByUser(userName);
         }
     }
 }

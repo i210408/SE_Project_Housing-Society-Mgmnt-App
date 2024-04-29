@@ -18,5 +18,10 @@ namespace BusinessLogicLayer
         {
             return DB.GetFeedbacksByUsername(username);
         }
+
+        public static void InsertFeedback(int userID, int providerID, string serviceName, string feedbackText,int feedbackRating)
+        {
+            DB.InsertFeedback(userID, providerID, serviceName, feedbackText, feedbackRating);
+        }
     }
 }
