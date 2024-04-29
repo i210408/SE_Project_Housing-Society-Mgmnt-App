@@ -195,7 +195,7 @@ namespace DatabaseLayer
             return userDetails;
         }
 
-        private static int GetHomeownerIdByName(string homeownerName)
+        public static int GetHomeownerIdByName(string homeownerName)   // Keep this public, I need this to validate delete home owner.
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -308,6 +308,8 @@ namespace DatabaseLayer
             }
         }
 
+        // Modify this code so that it changes password for any user homeowner or admin.
+        // We will provide it with userName, old password and new password and it will modify it for both users.
 
         public static void ChangeHomeownerPassword(string homeownerUsername, string currentPassword, string newPassword)
         {
