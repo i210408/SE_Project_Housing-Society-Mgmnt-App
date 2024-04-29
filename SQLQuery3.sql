@@ -440,17 +440,30 @@ GO
 
 
 -- Create the Bills table
+-- Drop the existing Bills table if it exists
+IF OBJECT_ID('dbo.Bills', 'U') IS NOT NULL
+    DROP TABLE dbo.Bills;
+
+-- Create the Bills table with predefined bill types
 CREATE TABLE Bills (
     bill_id INT IDENTITY(1,1) PRIMARY KEY,
-    admin_id INT NOT NULL,
-    homeowner_id INT NOT NULL,
+    user_id INT NOT NULL,
     amount DECIMAL(10, 2) NOT NULL,
     issue_date DATE NOT NULL,
     due_date DATE NOT NULL,
     payment_status VARCHAR(20) NOT NULL DEFAULT 'unpaid' CHECK (payment_status IN ('unpaid', 'paid')),
-    FOREIGN KEY (admin_id) REFERENCES dbo.Users(user_id),
-    FOREIGN KEY (homeowner_id) REFERENCES dbo.Users(user_id)
+    bill_type VARCHAR(50) NOT NULL CHECK (bill_type IN ('electricity', 'internet', 'gas')),
+    FOREIGN KEY (user_id) REFERENCES dbo.Users(user_id)
 );
+
+
+
+
+
+
+
+
+
 
 -- Create the Visitors table
 CREATE TABLE Visitors (
@@ -506,3 +519,18 @@ CREATE TABLE Suggestions (
 
 select * from users
 insert into Users values('Youser', 'Passw','E@Email.com','homeowner');
+
+
+-- Create the Advertisements table
+CREATE TABLE Advertisements (
+    advertisement_id INT IDENTITY(1,1) PRIMARY KEY,
+    user_id INT NOT NULL,
+    advertisement_text VARCHAR(MAX) NOT NULL,
+    advertisement_date DATETIME NOT NULL DEFAULT GETDATE()
+);
+
+-- Add foreign key constraints
+ALTER TABLE dbo.Advertisements ADD CONSTRAINT FK_Advertisements_Users FOREIGN KEY (user_id) REFERENCES dbo.Users(user_id);
+
+
+select * from Advertisements

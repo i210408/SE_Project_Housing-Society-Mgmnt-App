@@ -11,7 +11,17 @@ namespace BusinessLogicLayer
     {
         public static List<string> RetrieveAllFeedbacks()
         {
-            return DB.GetAllSuggestions();
+            return DB.GetAllFeedbacks();
+        }
+
+        public static List<string> RetrieveFeedbackByUser(string username)
+        {
+            return DB.GetFeedbacksByUsername(username);
+        }
+
+        public static void InsertFeedback(int userID, int providerID, string serviceName, string feedbackText,int feedbackRating)
+        {
+            DB.InsertFeedback(userID, providerID, serviceName, feedbackText, feedbackRating);
         }
     }
 }

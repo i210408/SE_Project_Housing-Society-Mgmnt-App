@@ -1,23 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace DatabaseLayer
 {
     public class DB
     {
-       
-        static string connectionString = "Data Source=LAPTOP-R7A4A3IR\\SQLEXPRESS;Initial Catalog=df;Integrated Security=True";
-
+        static string connectionString = "Data Source=AZHANSPC\\SQLEXPRESS;Initial Catalog=df;Integrated Security=True";
 
         static string insertQuery = "INSERT INTO Users (username, password, email, user_type) VALUES (@Username, @Password, @Email, @UserType)";
-
-   
         static string retrieveQuery = "SELECT username, password, email, user_type FROM Users";
+
+        // New query for inserting suggestions
+        static string insertSuggestionQuery = "INSERT INTO Suggestions (user_id, suggestion_text) VALUES (@UserId, @SuggestionText)";
+
+        // New query for retrieving suggestions by user ID
+        static string retrieveSuggestionsByUserIdQuery = "SELECT suggestion_text FROM Suggestions WHERE user_id = @UserId";
 
 
 
@@ -39,7 +37,6 @@ namespace DatabaseLayer
             }
         }
 
-
         public static bool RetrieveAndCheckUserData(string username, string password)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -57,13 +54,19 @@ namespace DatabaseLayer
             }
         }
 
-
-
-
-        public static void InsertFeedback(int userId, int providerId, int serviceId, string feedbackText, int feedbackRating)
+        public static void InsertFeedback(int userId, int providerId, string serviceName, string feedbackText, int feedbackRating)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
+                // Find service ID based on service name
+                int serviceId = GetServiceIdByName(serviceName);
+
+                if (serviceId == -1)
+                {
+                    Console.WriteLine("Service not found.");
+                    return;
+                }
+
                 string insertFeedbackQuery = "INSERT INTO Feedback (user_id, provider_id, service_id, feedback_text, feedback_rating) VALUES (@UserId, @ProviderId, @ServiceId, @FeedbackText, @FeedbackRating)";
                 SqlCommand command = new SqlCommand(insertFeedbackQuery, connection);
                 command.Parameters.AddWithValue("@UserId", userId);
@@ -78,13 +81,31 @@ namespace DatabaseLayer
             }
         }
 
+        // Helper method to get service ID by service name
+        private static int GetServiceIdByName(string serviceName)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string retrieveServiceIdQuery = "SELECT service_id FROM Services WHERE service_name = @ServiceName";
+                SqlCommand command = new SqlCommand(retrieveServiceIdQuery, connection);
+                command.Parameters.AddWithValue("@ServiceName", serviceName);
+
+                connection.Open();
+                object result = command.ExecuteScalar();
+
+                // If service exists, return the ID; otherwise, return -1
+                return result != null ? Convert.ToInt32(result) : -1;
+            }
+        }
+
+
         public static List<string> GetAllFeedbacks()
         {
             List<string> feedbacks = new List<string>();
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string retrieveAllFeedbackQuery = "SELECT feedback_text, feedback_rating FROM Feedback";
+                string retrieveAllFeedbackQuery = "SELECT f.feedback_text, f.feedback_rating, s.service_name FROM Feedback f INNER JOIN Services s ON f.service_id = s.service_id";
 
                 SqlCommand command = new SqlCommand(retrieveAllFeedbackQuery, connection);
 
@@ -96,7 +117,7 @@ namespace DatabaseLayer
                 {
                     while (reader.Read())
                     {
-                        string feedback = $"Rating: {reader.GetInt32(1)}, Feedback: {reader.GetString(0)}";
+                        string feedback = $"Service: {reader.GetString(2)}, Rating: {reader.GetInt32(1)}, Feedback: {reader.GetString(0)}";
                         feedbacks.Add(feedback);
                     }
                 }
@@ -109,16 +130,16 @@ namespace DatabaseLayer
             return feedbacks;
         }
 
-        public static List<string> GetFeedbacksByUserId(int userId)
+        public static List<string> GetFeedbacksByUsername(string username)
         {
             List<string> feedbacks = new List<string>();
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string retrieveFeedbackByUserIdQuery = "SELECT feedback_text, feedback_rating FROM Feedback WHERE user_id = @UserId";
+                string retrieveFeedbackByUsernameQuery = "SELECT f.feedback_text, f.feedback_rating, s.service_name FROM Feedback f INNER JOIN Users u ON f.user_id = u.user_id INNER JOIN Services s ON f.service_id = s.service_id WHERE u.username = @Username";
 
-                SqlCommand command = new SqlCommand(retrieveFeedbackByUserIdQuery, connection);
-                command.Parameters.AddWithValue("@UserId", userId);
+                SqlCommand command = new SqlCommand(retrieveFeedbackByUsernameQuery, connection);
+                command.Parameters.AddWithValue("@Username", username);
 
                 connection.Open();
 
@@ -128,25 +149,99 @@ namespace DatabaseLayer
                 {
                     while (reader.Read())
                     {
-                        string feedback = $"Rating: {reader.GetInt32(1)}, Feedback: {reader.GetString(0)}";
+                        string feedback = $"Service: {reader.GetString(2)}, Rating: {reader.GetInt32(1)}, Feedback: {reader.GetString(0)}";
                         feedbacks.Add(feedback);
                     }
                 }
                 else
                 {
-                    feedbacks.Add("No feedback exists.");
+                    feedbacks.Add("No feedback exists for this user.");
                 }
             }
 
             return feedbacks;
         }
 
+        public static List<string> GetUserDetailsByUsername(string username)
+        {
+            List<string> userDetails = null;
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string retrieveUserDetailsQuery = "SELECT * FROM Users WHERE username = @Username";
+
+                SqlCommand command = new SqlCommand(retrieveUserDetailsQuery, connection);
+                command.Parameters.AddWithValue("@Username", username);
+
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    userDetails = new List<string>();
+
+                    while (reader.Read())
+                    {
+                        userDetails.Add($"User ID: {reader.GetInt32(0)}");
+                        userDetails.Add($"Username: {reader.GetString(1)}");
+                        userDetails.Add($"Password: {reader.GetString(2)}");
+                        userDetails.Add($"Email: {reader.GetString(3)}");
+                        userDetails.Add($"User Type: {reader.GetString(4)}");
+                    }
+                }
+            }
+
+            return userDetails;
+        }
+
+        private static int GetHomeownerIdByName(string homeownerName)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string retrieveHomeownerIdQuery = "SELECT user_id FROM Users WHERE username = @HomeownerName AND user_type = 'homeowner'";
+                SqlCommand command = new SqlCommand(retrieveHomeownerIdQuery, connection);
+                command.Parameters.AddWithValue("@HomeownerName", homeownerName);
+
+                connection.Open();
+                object result = command.ExecuteScalar();
+
+                // If homeowner exists, return the ID; otherwise, return -1
+                return result != null ? Convert.ToInt32(result) : -1;
+            }
+        }
+        public static void IssueBillToHomeowner(string homeownerName, decimal amount, DateTime issueDate, DateTime dueDate)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                int homeownerId = GetHomeownerIdByName(homeownerName);
+
+                if (homeownerId != -1)
+                {
+                    string insertBillQuery = "INSERT INTO Bills (homeowner_name, amount, issue_date, due_date) VALUES (@HomeownerName, @Amount, @IssueDate, @DueDate)";
+                    SqlCommand command = new SqlCommand(insertBillQuery, connection);
+                    command.Parameters.AddWithValue("@HomeownerName", homeownerName);
+                    command.Parameters.AddWithValue("@Amount", amount);
+                    command.Parameters.AddWithValue("@IssueDate", issueDate);
+                    command.Parameters.AddWithValue("@DueDate", dueDate);
+
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+                    Console.WriteLine($"{rowsAffected} row(s) inserted into Bills table.");
+                }
+                else
+                {
+                    Console.WriteLine("Homeowner not found.");
+                }
+            }
+        }
+
+
 
         public static void InsertSuggestion(int userId, string suggestionText)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string insertSuggestionQuery = "INSERT INTO Suggestions (user_id, suggestion_text) VALUES (@UserId, @SuggestionText)";
                 SqlCommand command = new SqlCommand(insertSuggestionQuery, connection);
                 command.Parameters.AddWithValue("@UserId", userId);
                 command.Parameters.AddWithValue("@SuggestionText", suggestionText);
@@ -158,15 +253,21 @@ namespace DatabaseLayer
         }
 
 
-        public static List<string> GetAllSuggestions()
+        // Method to get suggestions for a user by username
+        public static List<string> GetSuggestionsByUsername(string username)
         {
             List<string> suggestions = new List<string>();
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string retrieveAllSuggestionsQuery = "SELECT suggestion_text FROM Suggestions";
+                string retrieveSuggestionsByUsernameQuery = @"
+            SELECT s.suggestion_text 
+            FROM Suggestions s 
+            INNER JOIN Users u ON s.user_id = u.user_id 
+            WHERE u.username = @Username";
 
-                SqlCommand command = new SqlCommand(retrieveAllSuggestionsQuery, connection);
+                SqlCommand command = new SqlCommand(retrieveSuggestionsByUsernameQuery, connection);
+                command.Parameters.AddWithValue("@Username", username);
 
                 connection.Open();
 
@@ -176,13 +277,12 @@ namespace DatabaseLayer
                 {
                     while (reader.Read())
                     {
-                        string suggestion = reader.GetString(0);
-                        suggestions.Add(suggestion);
+                        suggestions.Add(reader.GetString(0));
                     }
                 }
                 else
                 {
-                    suggestions.Add("No suggestions exist.");
+                    suggestions.Add("No suggestions available for this user.");
                 }
             }
 
@@ -190,16 +290,93 @@ namespace DatabaseLayer
         }
 
 
-        public static List<string> GetSuggestionsByUserId(int userId)
-        {
-            List<string> suggestions = new List<string>();
 
+        public static void DeleteHomeowner(string username)
+        {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string retrieveSuggestionsByUserIdQuery = "SELECT suggestion_text FROM Suggestions WHERE user_id = @UserId";
+                string deleteQuery = "DELETE FROM Users WHERE username = @Username AND user_type = 'homeowner'";
 
-                SqlCommand command = new SqlCommand(retrieveSuggestionsByUserIdQuery, connection);
+                SqlCommand command = new SqlCommand(deleteQuery, connection);
+                command.Parameters.AddWithValue("@Username", username);
+
+                connection.Open();
+
+                int rowsAffected = command.ExecuteNonQuery();
+
+                Console.WriteLine($"{rowsAffected} homeowner(s) deleted.");
+            }
+        }
+
+
+        public static void ChangeHomeownerPassword(string homeownerUsername, string currentPassword, string newPassword)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                // Query to check if the provided username and current password match a homeowner
+                string verifyHomeownerQuery = "SELECT COUNT(*) FROM Users WHERE username = @Username AND password = @CurrentPassword AND user_type = 'homeowner'";
+
+                SqlCommand verifyCommand = new SqlCommand(verifyHomeownerQuery, connection);
+                verifyCommand.Parameters.AddWithValue("@Username", homeownerUsername);
+                verifyCommand.Parameters.AddWithValue("@CurrentPassword", currentPassword);
+
+                connection.Open();
+
+                int homeownerCount = (int)verifyCommand.ExecuteScalar();
+
+                if (homeownerCount > 0)
+                {
+                    // Update the password for the homeowner
+                    string updatePasswordQuery = "UPDATE Users SET password = @NewPassword WHERE username = @Username";
+
+                    SqlCommand updateCommand = new SqlCommand(updatePasswordQuery, connection);
+                    updateCommand.Parameters.AddWithValue("@NewPassword", newPassword);
+                    updateCommand.Parameters.AddWithValue("@Username", homeownerUsername);
+
+                    int rowsAffected = updateCommand.ExecuteNonQuery();
+
+                    Console.WriteLine($"{rowsAffected} homeowner password(s) updated.");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid homeowner username or current password.");
+                }
+            }
+        }
+
+
+        static string insertNotificationQuery = "INSERT INTO Notifications (user_id, notification_text, notification_date) VALUES (@UserId, @NotificationText, @NotificationDate)";
+
+        public static void SendNotification(int userId, string notificationText)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(insertNotificationQuery, connection);
                 command.Parameters.AddWithValue("@UserId", userId);
+                command.Parameters.AddWithValue("@NotificationText", notificationText);
+                command.Parameters.AddWithValue("@NotificationDate", DateTime.Now);
+
+                connection.Open();
+
+                int rowsAffected = command.ExecuteNonQuery();
+
+                Console.WriteLine($"{rowsAffected} notification(s) sent.");
+                Console.WriteLine($"{rowsAffected} notification(s) sent.");
+                Console.WriteLine($"{rowsAffected} notification(s) sent.");
+            }
+        }
+
+
+
+        public static List<(string notificationText, DateTime notificationDate)> GetNotifications()
+        {
+            List<(string notificationText, DateTime notificationDate)> notifications = new List<(string notificationText, DateTime notificationDate)>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string retrieveNotificationsQuery = "SELECT notification_text, notification_date FROM Notifications";
+
+                SqlCommand command = new SqlCommand(retrieveNotificationsQuery, connection);
 
                 connection.Open();
 
@@ -209,21 +386,78 @@ namespace DatabaseLayer
                 {
                     while (reader.Read())
                     {
-                        string suggestion = reader.GetString(0);
-                        suggestions.Add(suggestion);
+                        string notificationText = reader.GetString(0);
+                        DateTime notificationDate = reader.GetDateTime(1);
+
+                        notifications.Add((notificationText, notificationDate));
+                    }
+                }
+            }
+
+            return notifications;
+        }
+
+        public static void AddAdvertisement(int userId, string advertisementText)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string insertAdvertisementQuery = "INSERT INTO Advertisements (user_id, advertisement_text) VALUES (@UserId, @AdvertisementText)";
+
+                SqlCommand command = new SqlCommand(insertAdvertisementQuery, connection);
+                command.Parameters.AddWithValue("@UserId", userId);
+                command.Parameters.AddWithValue("@AdvertisementText", advertisementText);
+
+                connection.Open();
+
+                int rowsAffected = command.ExecuteNonQuery();
+
+                Console.WriteLine($"{rowsAffected} advertisement(s) added.");
+            }
+        }
+
+        public static List<string> GetAdvertisements()
+        {
+            List<string> advertisements = new List<string>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string retrieveAdvertisementsQuery = "SELECT advertisement_text, advertisement_date FROM Advertisements";
+
+                SqlCommand command = new SqlCommand(retrieveAdvertisementsQuery, connection);
+
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        string advertisementText = reader.GetString(0);
+                        DateTime advertisementDate = reader.GetDateTime(1);
+
+                        string advertisementMessage = $"Advertisement: {advertisementText}, Date: {advertisementDate}";
+
+                        advertisements.Add(advertisementMessage);
                     }
                 }
                 else
                 {
-                    suggestions.Add("No suggestions exist for this user.");
+                    advertisements.Add("No advertisements found.");
                 }
             }
 
-            return suggestions;
+            return advertisements;
         }
-
-
 
     }
+
+
+
 }
-    
+
+
+
+
+
+

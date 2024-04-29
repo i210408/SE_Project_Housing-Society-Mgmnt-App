@@ -11,7 +11,18 @@ namespace BusinessLogicLayer
     {
         public static List<string> RetrieveAllSuggestions()
         {
-            return DB.GetAllSuggestions();
+            return null;
         }
+
+        public static List<string> RetrieveSuggestionsByUser(string userName)
+        {
+            return DB.GetSuggestionsByUsername(userName);
+        }
+
+        public static void InsertSuggestions(int userID, string suggestionText)
+        {
+            DB.InsertSuggestion(userID, suggestionText);
+        }
+
     }
 }
