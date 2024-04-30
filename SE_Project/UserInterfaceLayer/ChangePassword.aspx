@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="NotifsIn.aspx.cs" Inherits="UserInterfaceLayer.NotifsIn" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ChangePassword.aspx.cs" Inherits="UserInterfaceLayer.ChangePassword" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <main>
@@ -34,27 +34,30 @@
     <br />
     <asp:ImageButton ID="CalanadarAdd" src="InsertToCalanderIcon.png" runat="server" OnClick="CalanadarAdd_Click" />
     <br />
-    <asp:Label ID="Label4" runat="server" Text="Add To Community Calander"></asp:Label>
+    <asp:Label ID="Label6" runat="server" Text="Add To Community Calander"></asp:Label>
     <br />
     <br />
     <asp:ImageButton ID="ViewCommCal" src="ViewCommCalIcon.png" runat="server" OnClick="ViewCommCal_Click" />
     <br />
-    <asp:Label ID="Label5" runat="server" Text="View Community Calandar"></asp:Label>
+    <asp:Label ID="Label7" runat="server" Text="View Community Calandar"></asp:Label>
     <br />
     <br />
     <asp:ImageButton ID="ViewUserData" src="VeiwUserDataIcon.png" runat="server" OnClick="ViewUserData_Click" />
     <br />
-    <asp:Label ID="Label6" runat="server" Text="View All User Data"></asp:Label>
+    <asp:Label ID="Label8" runat="server" Text="View All User Data"></asp:Label>
 </th>
             <th id="Work" style="border:8px double midnightblue; border-radius:5px; width: 991px; height: 546px;">
-                <label style="font-size:2.5vw;color:midnightblue;font-family:Arial, Helvetica, sans-serif"><u>Broadcast Notification</u></label>
+                <label style="font-size:3vw;color:midnightblue;font-family:Arial, Helvetica, sans-serif"><u>Change Password<br /></u></label>
+                <br />
+                <asp:Label ID="Label4" runat="server" Text="Old Password: "></asp:Label>
+                <asp:TextBox ID="OldPassw" runat="server"></asp:TextBox>
+                <br />
+                <asp:Label ID="Label5" runat="server" Text="New Password: "></asp:Label>
+                <asp:TextBox ID="NewPassw" runat="server"></asp:TextBox>
                 <br />
                 <br />
-                <label>Notification Message: </label>
-                <asp:TextBox ID="NotifsInput" runat="server"></asp:TextBox>
-                <br />
-                <br />
-                <asp:Button ID="Bcast" runat="server" OnClick="Bcast_Click" Text="Broadcast" />
+                <asp:Button ID="Button1" runat="server" Text="Button" />
+                
             </th>
         </tr>
     </table>

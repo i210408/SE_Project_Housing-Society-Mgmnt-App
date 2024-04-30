@@ -11,7 +11,7 @@ namespace UserInterfaceLayer
 {
 
 
-    public partial class HomepageA
+    public partial class ViewUserData
     {
 
         /// <summary>
@@ -123,13 +123,13 @@ namespace UserInterfaceLayer
         protected global::System.Web.UI.WebControls.Label Label5;
 
         /// <summary>
-        /// ViewUserData control.
+        /// ViewUserData1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ViewUserData;
+        protected global::System.Web.UI.WebControls.ImageButton ViewUserData1;
 
         /// <summary>
         /// Label6 control.

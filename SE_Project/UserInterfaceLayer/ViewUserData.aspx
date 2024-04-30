@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="NotifsIn.aspx.cs" Inherits="UserInterfaceLayer.NotifsIn" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="ViewUserData.aspx.cs" Inherits="UserInterfaceLayer.ViewUserData" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <main>
@@ -42,21 +42,19 @@
     <asp:Label ID="Label5" runat="server" Text="View Community Calandar"></asp:Label>
     <br />
     <br />
-    <asp:ImageButton ID="ViewUserData" src="VeiwUserDataIcon.png" runat="server" OnClick="ViewUserData_Click" />
+    <asp:ImageButton ID="ViewUserData1" src="VeiwUserDataIcon.png" runat="server" OnClick="ViewUserData_Click" />
     <br />
     <asp:Label ID="Label6" runat="server" Text="View All User Data"></asp:Label>
 </th>
             <th id="Work" style="border:8px double midnightblue; border-radius:5px; width: 991px; height: 546px;">
-                <label style="font-size:2.5vw;color:midnightblue;font-family:Arial, Helvetica, sans-serif"><u>Broadcast Notification</u></label>
-                <br />
-                <br />
-                <label>Notification Message: </label>
-                <asp:TextBox ID="NotifsInput" runat="server"></asp:TextBox>
-                <br />
-                <br />
-                <asp:Button ID="Bcast" runat="server" OnClick="Bcast_Click" Text="Broadcast" />
+                <label style="font-size:3vw;color:midnightblue;font-family:Arial, Helvetica, sans-serif"><u>View All User Data:</u></label>
+                <table style="margin:0 auto;text-align:center">
+                    <tr><th style="font-size:20px"><u> Sidebar Guide: </u></th></tr>
+                    <tr><td><label>For futher Questions and Queries, dial 2211</label></td></tr>
+                </table>
             </th>
         </tr>
     </table>
     </main>
 </asp:Content>
+
