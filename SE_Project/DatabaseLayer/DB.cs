@@ -493,6 +493,38 @@ namespace DatabaseLayer
 
 
 
+        public static void DisplayAllUserDataExceptPassword()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string retrieveAllUserDataQuery = "SELECT user_id, username, email, user_type FROM Users";
+
+                SqlCommand command = new SqlCommand(retrieveAllUserDataQuery, connection);
+
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        int userId = reader.GetInt32(0);
+                        string username = reader.GetString(1);
+                        string email = reader.GetString(2);
+                        string userType = reader.GetString(3);
+
+                   //     Console.WriteLine($"User ID: {userId}, Username: {username}, Email: {email}, User Type: {userType}");
+                    }
+                }
+                else
+                {
+                   // Console.WriteLine("No user data found.");
+                }
+            }
+        }
+
+
 
     }
 
