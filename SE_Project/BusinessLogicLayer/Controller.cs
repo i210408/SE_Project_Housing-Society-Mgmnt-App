@@ -49,6 +49,23 @@ namespace BusinessLogicLayer
             return AccountManager.DeleteUser(userName);
         }
 
+        // Change Password.
+
+        public bool ChangePassword(string oldPassword, string newPassword)
+        {
+            // Returns true if password was successfully changed.
+            // Rteurns false if the oldPassword did not match the password set.
+
+            return accountManager.ChangePassword(oldPassword, newPassword);
+        }
+
+        // Logout
+
+        public void Logout()
+        {
+            accountManager.Logout();
+        }
+
         // Insert Feedback.
 
         public void InsertFeedback(int providerID, string serviceName, string feedbackText, int feedbackRating)
@@ -115,6 +132,31 @@ namespace BusinessLogicLayer
             // Returns null if no notifications found in the database.
 
             return NotificationManager.RetrieveNotifications();
+        }
+
+        // Add Advertisement.
+
+        public void AddAdvertisement(string advertisementText)
+        {
+            int currentUser = accountManager.currentUser.GetUserID();
+            AdManager.AddAdvertisement(currentUser, advertisementText);
+        }
+
+        // Broadcast Advertisements.
+
+        public List<string> BroadcastAdvertisement()
+        {
+            return AdManager.RetrieveAdvertisements();
+        }
+
+        // Add Event to Calender.
+
+        public bool AddEventToCalender(string eventTitle, string eventDescription, DateTime eventDate)
+        {
+            // Returns true if successfully added.
+            // Returns false if another event already existed on the same day.
+
+            return EventManager.AddEventToCalendar(eventTitle, eventDescription, eventDate);
         }
 
 

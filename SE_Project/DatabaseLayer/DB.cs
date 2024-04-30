@@ -6,7 +6,7 @@ namespace DatabaseLayer
 {
     public class DB
     {
-        static string connectionString = "Data Source=LAPTOP-R7A4A3IR\\SQLEXPRESS;Initial Catalog=df;Integrated Security=True";
+        static string connectionString = "Data Source=AZHANSPC\\SQLEXPRESS;Initial Catalog=df;Integrated Security=True";
 
         static string insertQuery = "INSERT INTO Users (username, password, email, user_type) VALUES (@Username, @Password, @Email, @UserType)";
         static string retrieveQuery = "SELECT username, password, email, user_type FROM Users";
@@ -311,8 +311,7 @@ namespace DatabaseLayer
             }
         }
 
-        // Modify this code so that it changes password for any user homeowner or admin.
-        // We will provide it with userName, old password and new password and it will modify it for both users.
+   
 
         public static void ChangeHomeownerPassword(string homeownerUsername, string currentPassword, string newPassword)
         {
@@ -454,6 +453,115 @@ namespace DatabaseLayer
 
             return advertisements;
         }
+
+
+        public static bool IsEventOnDay(DateTime date)
+        {
+            string query = "SELECT COUNT(*) FROM Calendar WHERE event_date = @Date";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@Date", date.Date);
+
+                connection.Open();
+                int eventCount = (int)command.ExecuteScalar();
+
+                return eventCount > 0;
+            }
+        }
+
+
+
+        public static void AddEventToCalendar(string eventTitle, string eventDescription, DateTime eventDate)
+        {
+            string insertQuery = "INSERT INTO Calendar (event_title, event_description, event_date) VALUES (@Title, @Description, @Date)";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(insertQuery, connection);
+                command.Parameters.AddWithValue("@Title", eventTitle);
+                command.Parameters.AddWithValue("@Description", eventDescription);
+                command.Parameters.AddWithValue("@Date", eventDate.Date);
+
+                connection.Open();
+                int rowsAffected = command.ExecuteNonQuery();
+
+                Console.WriteLine($"{rowsAffected} event(s) added to the calendar.");
+            }
+        }
+
+
+
+        public static List<(int userId, string username, string email)> GetAllHomeOwnerData()
+        {
+            List<(int userId, string username, string email)> homeOwnerData = new List<(int userId, string username, string email)>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string retrieveHomeOwnerDataQuery = "SELECT user_id, username, email FROM Users WHERE user_type = 'homeowner'";
+
+                SqlCommand command = new SqlCommand(retrieveHomeOwnerDataQuery, connection);
+
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        int userId = reader.GetInt32(0);
+                        string username = reader.GetString(1);
+                        string email = reader.GetString(2);
+
+                        homeOwnerData.Add((userId, username, email));
+                    }
+                }
+            }
+
+            return homeOwnerData;
+        }
+
+
+
+        public static void ChangeUserPassword(int userId, string oldPassword, string newPassword)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+
+                string verifyUserQuery = "SELECT COUNT(*) FROM Users WHERE user_id = @UserId AND password = @OldPassword";
+
+                SqlCommand verifyCommand = new SqlCommand(verifyUserQuery, connection);
+                verifyCommand.Parameters.AddWithValue("@UserId", userId);
+                verifyCommand.Parameters.AddWithValue("@OldPassword", oldPassword);
+
+                connection.Open();
+
+                int userCount = (int)verifyCommand.ExecuteScalar();
+
+                if (userCount > 0)
+                {
+         
+                    string updatePasswordQuery = "UPDATE Users SET password = @NewPassword WHERE user_id = @UserId";
+
+                    SqlCommand updateCommand = new SqlCommand(updatePasswordQuery, connection);
+                    updateCommand.Parameters.AddWithValue("@NewPassword", newPassword);
+                    updateCommand.Parameters.AddWithValue("@UserId", userId);
+
+                    int rowsAffected = updateCommand.ExecuteNonQuery();
+
+                   // Console.WriteLine($"{rowsAffected} user password(s) updated.");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid user ID or old password.");
+                }
+            }
+        }
+
+
+
 
     }
 
