@@ -493,13 +493,15 @@ namespace DatabaseLayer
 
 
 
-        public static void DisplayAllUserDataExceptPassword()
+        public static List<(int userId, string username, string email)> GetAllHomeOwnerData()
         {
+            List<(int userId, string username, string email)> homeOwnerData = new List<(int userId, string username, string email)>();
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string retrieveAllUserDataQuery = "SELECT user_id, username, email, user_type FROM Users";
+                string retrieveHomeOwnerDataQuery = "SELECT user_id, username, email FROM Users WHERE user_type = 'homeowner'";
 
-                SqlCommand command = new SqlCommand(retrieveAllUserDataQuery, connection);
+                SqlCommand command = new SqlCommand(retrieveHomeOwnerDataQuery, connection);
 
                 connection.Open();
 
@@ -512,16 +514,13 @@ namespace DatabaseLayer
                         int userId = reader.GetInt32(0);
                         string username = reader.GetString(1);
                         string email = reader.GetString(2);
-                        string userType = reader.GetString(3);
 
-                   //     Console.WriteLine($"User ID: {userId}, Username: {username}, Email: {email}, User Type: {userType}");
+                        homeOwnerData.Add((userId, username, email));
                     }
                 }
-                else
-                {
-                   // Console.WriteLine("No user data found.");
-                }
             }
+
+            return homeOwnerData;
         }
 
 
