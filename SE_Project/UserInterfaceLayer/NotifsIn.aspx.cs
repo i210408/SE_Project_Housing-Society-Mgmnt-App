@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace UserInterfaceLayer
 {
-    public partial class HomepageA : System.Web.UI.Page
+    public partial class NotifsIn : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,6 +33,13 @@ namespace UserInterfaceLayer
         protected void VeiwNotifs_Click(object sender, ImageClickEventArgs e)
         {
             Response.Redirect("VeiwNotifs.aspx");
+        }
+
+        protected void Bcast_Click(object sender, EventArgs e)
+        {
+            var controller = (Controller)Session["Controller"];
+            controller.BroadcastNotifications(NotifsInput.Text.ToString());
+            Response.Redirect("HomepageA.aspx");
         }
     }
 }

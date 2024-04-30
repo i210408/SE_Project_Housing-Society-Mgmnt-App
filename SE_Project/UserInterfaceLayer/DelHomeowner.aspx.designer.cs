@@ -11,7 +11,7 @@ namespace UserInterfaceLayer
 {
 
 
-    public partial class HomepageA
+    public partial class DelHomeowner
     {
 
         /// <summary>
@@ -33,13 +33,13 @@ namespace UserInterfaceLayer
         protected global::System.Web.UI.WebControls.ImageButton IssueBillsButton;
 
         /// <summary>
-        /// Label1 control.
+        /// Label2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label Label2;
 
         /// <summary>
         /// NotifsInButton control.
@@ -51,13 +51,13 @@ namespace UserInterfaceLayer
         protected global::System.Web.UI.WebControls.ImageButton NotifsInButton;
 
         /// <summary>
-        /// Label2 control.
+        /// Label3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.Label Label3;
 
         /// <summary>
         /// VeiwNotifsButton control.
@@ -69,12 +69,39 @@ namespace UserInterfaceLayer
         protected global::System.Web.UI.WebControls.ImageButton VeiwNotifsButton;
 
         /// <summary>
-        /// Label3 control.
+        /// Label4 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.Label Label4;
+
+        /// <summary>
+        /// Label1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label1;
+
+        /// <summary>
+        /// UserDel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox UserDel;
+
+        /// <summary>
+        /// Delete control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Delete;
     }
 }

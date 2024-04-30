@@ -1,4 +1,4 @@
-﻿<%@ Page Title="About" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="HomepageA.aspx.cs" Inherits="UserInterfaceLayer.HomepageA" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="VeiwNotifs.aspx.cs" Inherits="UserInterfaceLayer.VeiwNotifs" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <main>
@@ -23,18 +23,17 @@
                 <br />
                 <asp:ImageButton ID="VeiwNotifsButton" src="VeiwNotifsIcon.png" runat="server" OnClick="VeiwNotifs_Click" />
 
-                <br />
-                <asp:Label ID="Label3" runat="server" Text="Veiw Notifications"></asp:Label>
-
             </th>
             <th id="Work" style="border:8px double midnightblue; border-radius:5px; width: 991px; height: 546px;">
-                <label style="font-size:3vw;color:midnightblue;font-family:Arial, Helvetica, sans-serif"><u>Admin Account Homepage</u></label>
-                <table style="margin:0 auto;text-align:center">
-                    <tr><th style="font-size:20px"><u> Sidebar Guide: </u></th></tr>
-                    <tr><td><label>For futher Questions and Queries, dial 2211</label></td></tr>
-                </table>
-            </th>
+                <label style="font-size:2.5vw;color:midnightblue;font-family:Arial, Helvetica, sans-serif"><u>Notification Page:</u><br /> </label>
+                <br />
+                 <br />
+                <asp:Label ID="Label3" runat="server" style="font-size:20px"></asp:Label>
+               
+                
+            &nbsp;</th>
         </tr>
     </table>
     </main>
 </asp:Content>
+

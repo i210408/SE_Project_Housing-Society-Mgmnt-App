@@ -9,11 +9,11 @@ namespace BusinessLogicLayer
 {
     internal class BillsManager
     {
-        public static void IssueBill(string userName, decimal amount, int days)
+        public static void IssueBill(string userName, decimal amount, int days, string reason)
         {
             DateTime issueDate = DateTime.Now;
             DateTime dueDate = issueDate.AddDays(days);
-            DB.IssueBillToHomeowner(userName, amount, issueDate, dueDate);
+            DB.IssueBillToHomeowner(userName, amount, issueDate, dueDate, reason);
         }
     }
 }

@@ -11,7 +11,7 @@ namespace UserInterfaceLayer
 {
 
 
-    public partial class HomepageA
+    public partial class NotifsIn
     {
 
         /// <summary>
@@ -76,5 +76,23 @@ namespace UserInterfaceLayer
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label Label3;
+
+        /// <summary>
+        /// NotifsInput control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox NotifsInput;
+
+        /// <summary>
+        /// Bcast control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Bcast;
     }
 }

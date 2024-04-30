@@ -11,7 +11,7 @@ namespace UserInterfaceLayer
 {
 
 
-    public partial class About
+    public partial class HomepageH
     {
 
         /// <summary>
