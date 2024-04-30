@@ -39,6 +39,13 @@ namespace BusinessLogicLayer
             return true;
         }
 
+        // View Homeowner data.
+
+        public static List<(int userId, string username, string email)> GetAllResidentData()
+        {
+            return AccountManager.GetAllResidentData();
+        }
+
         // Delete Homeowner account.
 
         public bool DeleteHomeowner(string userName)
