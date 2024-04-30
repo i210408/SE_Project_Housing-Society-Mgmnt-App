@@ -58,5 +58,20 @@ namespace BusinessLogicLayer
             return true;
         }
 
+        public bool ChangePassword(string oldPassword, string newPassword)
+        {
+            if (this.currentUser.GetPassword() == oldPassword)
+            {
+                DB.ChangeUserPassword(this.currentUser.GetUserID(), oldPassword, newPassword);
+                return true;
+            }
+            else
+                return false;
+        }
+
+        public void Logout()
+        {
+            this.currentUser = null;
+        }
     }
 }
