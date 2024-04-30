@@ -534,3 +534,4 @@ ALTER TABLE dbo.Advertisements ADD CONSTRAINT FK_Advertisements_Users FOREIGN KE
 
 
 select * from Advertisements
+select  * from Calendar
