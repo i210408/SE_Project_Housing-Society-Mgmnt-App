@@ -45,7 +45,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccountManager.cs" />
+    <Compile Include="AdManager.cs" />
     <Compile Include="BillsManager.cs" />
+    <Compile Include="EventManager.cs" />
     <Compile Include="NotificationManager.cs" />
     <Compile Include="Controller.cs" />
     <Compile Include="FeedbackManager.cs" />
