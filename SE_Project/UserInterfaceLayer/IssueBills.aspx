@@ -10,7 +10,7 @@
     <label>Delete Homeowner<br />
     </label>&nbsp;<br />
     <asp:ImageButton ID="IssueBillsButton" src="IssueBillsIcon.png" runat="server" OnClick="IssueB_Click"/>
-<br />
+
     <br />
     <asp:Label ID="Label5" runat="server" Text="Issue Bills"></asp:Label>
     <br />
@@ -26,6 +26,26 @@
     <br />
     <asp:Label ID="Label7" runat="server" Text="Veiw Notifications"></asp:Label>
 
+    <br />
+    <br />
+    <asp:ImageButton ID="ChangePassw" src="ChangePasswordIcon.png" runat="server" OnClick="ChangePassword_Click"/>
+    <br />
+    <label>Change Password</label><br />
+    <br />
+    <asp:ImageButton ID="CalanadarAdd" src="InsertToCalanderIcon.png" runat="server" OnClick="CalanadarAdd_Click" />
+    <br />
+    <asp:Label ID="Label8" runat="server" Text="Add To Community Calander"></asp:Label>
+    <br />
+    <br />
+    <asp:ImageButton ID="ViewCommCal" src="ViewCommCalIcon.png" runat="server" OnClick="ViewCommCal_Click" />
+    <br />
+    <asp:Label ID="Label9" runat="server" Text="View Community Calandar"></asp:Label>
+    <br />
+    <br />
+    <asp:ImageButton ID="ViewUserData" src="VeiwUserDataIcon.png" runat="server" OnClick="ViewUserData_Click" />
+    <br />
+    <asp:Label ID="Label10" runat="server" Text="View All User Data"></asp:Label>
+</th>
             <th id="Work" style="border:8px double midnightblue; border-radius:5px; width: 991px; height: 306px;">
                 <label style="font-size:2.5vw;color:midnightblue;font-family:Arial, Helvetica, sans-serif"><u>Issue Bill to Homeowner</u></label>
                 

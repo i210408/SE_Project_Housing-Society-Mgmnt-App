@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="NotifsIn.aspx.cs" Inherits="UserInterfaceLayer.NotifsIn" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="ViewCommCal.aspx.cs" Inherits="UserInterfaceLayer.ViewCommCal" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <main>
     <table  style="background-color:#95d5d7;margin:0 auto;text-align:center;border:8px double;border-radius:5px;border-color:midnightblue;color:darkblue;font-size:1.25vw">
@@ -44,19 +43,16 @@
     <br />
     <asp:ImageButton ID="ViewUserData" src="VeiwUserDataIcon.png" runat="server" OnClick="ViewUserData_Click" />
     <br />
-    <asp:Label ID="Label6" runat="server" Text="View All User Data"></asp:Label>
+    <asp:Label ID="Label7" runat="server" Text="View All User Data"></asp:Label>
 </th>
             <th id="Work" style="border:8px double midnightblue; border-radius:5px; width: 991px; height: 546px;">
-                <label style="font-size:2.5vw;color:midnightblue;font-family:Arial, Helvetica, sans-serif"><u>Broadcast Notification</u></label>
-                <br />
-                <br />
-                <label>Notification Message: </label>
-                <asp:TextBox ID="NotifsInput" runat="server"></asp:TextBox>
-                <br />
-                <br />
-                <asp:Button ID="Bcast" runat="server" OnClick="Bcast_Click" Text="Broadcast" />
-            </th>
+    <label style="font-size:2.5vw;color:midnightblue;font-family:Arial, Helvetica, sans-serif">C<u>ommunity Calanadar:</u><br /> </label>
+    <br />
+     <br />
+    <asp:Label ID="Label6" runat="server" style="font-size:20px"></asp:Label>
+                </th>
         </tr>
     </table>
     </main>
 </asp:Content>
+

@@ -16,12 +16,6 @@ namespace UserInterfaceLayer
 
         }
 
-        protected void DelH_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("DelHomeowner.aspx");
-
-        }
-
         protected void IssueB_Click(object sender, ImageClickEventArgs e)
         {
             Response.Redirect("IssueBills.aspx");
@@ -37,14 +31,37 @@ namespace UserInterfaceLayer
             Response.Redirect("VeiwNotifs.aspx");
         }
 
-        protected void Delete_Click(object sender, EventArgs e)
+        protected void ChangePassword_Click(object sender, ImageClickEventArgs e)
         {
-            var controller=(Controller)this.Session["Controller"];
-            if (controller.DeleteHomeowner(UserDel.Text.ToString()) == true)
-            {
-                Response.Redirect("HomepageA.aspx");
-            }
+            Response.Redirect("ChangePassword.aspx");
+        }
+
+        protected void CalanadarAdd_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("AddToCalandar.aspx");
+        }
+
+        protected void ViewCommCal_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("ViewCommCal.aspx");
+        }
+
+        protected void ViewUserData_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("ViewUserData.aspx");
+        }
+
+        protected void DelH_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("DelHomeowner.aspx");
 
         }
+
+        protected void Delete_Click(object sender, EventArgs e)
+        {
+            var controller = (Controller)Session["Controller"];
+            controller.DeleteHomeowner(UserDel.Text.ToString());
+        }
     }
+    
 }

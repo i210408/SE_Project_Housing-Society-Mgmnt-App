@@ -11,7 +11,7 @@ namespace UserInterfaceLayer
 {
 
 
-    public partial class HomepageA
+    public partial class ViewCommCal
     {
 
         /// <summary>
@@ -111,7 +111,7 @@ namespace UserInterfaceLayer
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton ViewCommCal;
+        protected global::System.Web.UI.WebControls.ImageButton ViewCommCal1;
 
         /// <summary>
         /// Label5 control.
@@ -130,6 +130,15 @@ namespace UserInterfaceLayer
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ImageButton ViewUserData;
+
+        /// <summary>
+        /// Label7 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label Label7;
 
         /// <summary>
         /// Label6 control.

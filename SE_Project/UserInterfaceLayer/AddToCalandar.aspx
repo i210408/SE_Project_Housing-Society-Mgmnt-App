@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="NotifsIn.aspx.cs" Inherits="UserInterfaceLayer.NotifsIn" %>
-
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Site.Master" CodeBehind="AddToCalandar.aspx.cs" Inherits="UserInterfaceLayer.AddToCalandar" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <main>
     <table  style="background-color:#95d5d7;margin:0 auto;text-align:center;border:8px double;border-radius:5px;border-color:midnightblue;color:darkblue;font-size:1.25vw">
@@ -47,16 +46,12 @@
     <asp:Label ID="Label6" runat="server" Text="View All User Data"></asp:Label>
 </th>
             <th id="Work" style="border:8px double midnightblue; border-radius:5px; width: 991px; height: 546px;">
-                <label style="font-size:2.5vw;color:midnightblue;font-family:Arial, Helvetica, sans-serif"><u>Broadcast Notification</u></label>
+                <label style="font-size:3vw;color:midnightblue;font-family:Arial, Helvetica, sans-serif"><u>Add to Calander<br /></u></label>
                 <br />
-                <br />
-                <label>Notification Message: </label>
-                <asp:TextBox ID="NotifsInput" runat="server"></asp:TextBox>
-                <br />
-                <br />
-                <asp:Button ID="Bcast" runat="server" OnClick="Bcast_Click" Text="Broadcast" />
+                <asp:Button ID="AddEvent" runat="server" OnClick="AddEvent_Click" Text="Add Event" />
             </th>
         </tr>
     </table>
     </main>
 </asp:Content>
+
