@@ -6,7 +6,7 @@ namespace DatabaseLayer
 {
     public class DB
     {
-        static string connectionString = "Data Source=AZHANSPC\\SQLEXPRESS;Initial Catalog=df;Integrated Security=True";
+        static string connectionString = "Data Source=LAPTOP-R7A4A3IR\\SQLEXPRESS;Initial Catalog=df;Integrated Security=True";
 
         static string insertQuery = "INSERT INTO Users (username, password, email, user_type) VALUES (@Username, @Password, @Email, @UserType)";
         static string retrieveQuery = "SELECT username, password, email, user_type FROM Users";
@@ -183,11 +183,11 @@ namespace DatabaseLayer
 
                     while (reader.Read())
                     {
-                        userDetails.Add($"User ID: {reader.GetInt32(0)}");
-                        userDetails.Add($"Username: {reader.GetString(1)}");
-                        userDetails.Add($"Password: {reader.GetString(2)}");
-                        userDetails.Add($"Email: {reader.GetString(3)}");
-                        userDetails.Add($"User Type: {reader.GetString(4)}");
+                        userDetails.Add($"{reader.GetInt32(0)}");
+                        userDetails.Add($"{reader.GetString(1)}");
+                        userDetails.Add($"{reader.GetString(2)}");
+                        userDetails.Add($"{reader.GetString(3)}");
+                        userDetails.Add($"{reader.GetString(4)}");
                     }
                 }
             }
@@ -210,7 +210,7 @@ namespace DatabaseLayer
                 return result != null ? Convert.ToInt32(result) : -1;
             }
         }
-        public static void IssueBillToHomeowner(string homeownerName, decimal amount, DateTime issueDate, DateTime dueDate)
+        public static void IssueBillToHomeowner(string homeownerName, decimal amount, DateTime issueDate, DateTime dueDate, string reason)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -218,16 +218,19 @@ namespace DatabaseLayer
 
                 if (homeownerId != -1)
                 {
-                    string insertBillQuery = "INSERT INTO Bills (homeowner_name, amount, issue_date, due_date) VALUES (@HomeownerName, @Amount, @IssueDate, @DueDate)";
-                    SqlCommand command = new SqlCommand(insertBillQuery, connection);
-                    command.Parameters.AddWithValue("@HomeownerName", homeownerName);
-                    command.Parameters.AddWithValue("@Amount", amount);
-                    command.Parameters.AddWithValue("@IssueDate", issueDate);
-                    command.Parameters.AddWithValue("@DueDate", dueDate);
+                   
+                        string insertBillQuery = "INSERT INTO Bills (username, amount, issue_date, due_date, bill_type) VALUES (@Username, @Amount, @IssueDate, @DueDate, @Reason)";
+                        SqlCommand command = new SqlCommand(insertBillQuery, connection);
+                        command.Parameters.AddWithValue("@Username", homeownerName);
+                        command.Parameters.AddWithValue("@Amount", amount);
+                        command.Parameters.AddWithValue("@IssueDate", issueDate);
+                        command.Parameters.AddWithValue("@DueDate", dueDate);
+                        command.Parameters.AddWithValue("@Reason", reason);
 
-                    connection.Open();
-                    int rowsAffected = command.ExecuteNonQuery();
-                    Console.WriteLine($"{rowsAffected} row(s) inserted into Bills table.");
+                        connection.Open();
+                        int rowsAffected = command.ExecuteNonQuery();
+                        Console.WriteLine($"{rowsAffected} row(s) inserted into Bills table.");
+                   
                 }
                 else
                 {

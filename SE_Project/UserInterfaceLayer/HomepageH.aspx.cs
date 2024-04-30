@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace UserInterfaceLayer
 {
-    public partial class About : Page
+    public partial class HomepageH : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

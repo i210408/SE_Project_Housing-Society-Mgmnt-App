@@ -5,15 +5,17 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BusinessLogicLayer;
 
 namespace UserInterfaceLayer
 {
-    public partial class HomepageA : System.Web.UI.Page
+    public partial class DelHomeowner : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
+
         protected void DelH_Click(object sender, EventArgs e)
         {
             Response.Redirect("DelHomeowner.aspx");
@@ -33,6 +35,16 @@ namespace UserInterfaceLayer
         protected void VeiwNotifs_Click(object sender, ImageClickEventArgs e)
         {
             Response.Redirect("VeiwNotifs.aspx");
+        }
+
+        protected void Delete_Click(object sender, EventArgs e)
+        {
+            var controller=(Controller)this.Session["Controller"];
+            if (controller.DeleteHomeowner(UserDel.Text.ToString()) == true)
+            {
+                Response.Redirect("HomepageA.aspx");
+            }
+
         }
     }
 }

@@ -92,12 +92,12 @@ namespace BusinessLogicLayer
 
         // Issue Bills to a user.
 
-        public static void IssueBill(string userName, decimal amount, int days)
+        public static void IssueBill(string userName, decimal amount, int days, string reason)
         {
             // Amount: Money to be paid.
             // Days: Number of days till due date from the issue date.
 
-            BillsManager.IssueBill(userName, amount, days);
+            BillsManager.IssueBill(userName, amount, days, reason);
         }
 
         // Broadcast Notification.
