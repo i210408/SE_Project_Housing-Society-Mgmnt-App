@@ -526,6 +526,44 @@ namespace DatabaseLayer
 
 
 
+        public static void ChangeUserPassword(int userId, string oldPassword, string newPassword)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+
+                string verifyUserQuery = "SELECT COUNT(*) FROM Users WHERE user_id = @UserId AND password = @OldPassword";
+
+                SqlCommand verifyCommand = new SqlCommand(verifyUserQuery, connection);
+                verifyCommand.Parameters.AddWithValue("@UserId", userId);
+                verifyCommand.Parameters.AddWithValue("@OldPassword", oldPassword);
+
+                connection.Open();
+
+                int userCount = (int)verifyCommand.ExecuteScalar();
+
+                if (userCount > 0)
+                {
+         
+                    string updatePasswordQuery = "UPDATE Users SET password = @NewPassword WHERE user_id = @UserId";
+
+                    SqlCommand updateCommand = new SqlCommand(updatePasswordQuery, connection);
+                    updateCommand.Parameters.AddWithValue("@NewPassword", newPassword);
+                    updateCommand.Parameters.AddWithValue("@UserId", userId);
+
+                    int rowsAffected = updateCommand.ExecuteNonQuery();
+
+                   // Console.WriteLine($"{rowsAffected} user password(s) updated.");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid user ID or old password.");
+                }
+            }
+        }
+
+
+
+
     }
 
 
