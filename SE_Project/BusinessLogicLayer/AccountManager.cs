@@ -69,6 +69,11 @@ namespace BusinessLogicLayer
                 return false;
         }
 
+        public static List<(int userId, string username, string email)> GetAllResidentData()
+        {
+            return DB.GetAllHomeOwnerData();
+        }
+
         public void Logout()
         {
             this.currentUser = null;
