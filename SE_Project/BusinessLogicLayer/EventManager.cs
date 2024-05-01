@@ -19,5 +19,10 @@ namespace BusinessLogicLayer
             return true;
         }
 
+        public static List<(string, string, DateTime)> RetrieveCalendar()
+        {
+            return DB.ViewCommunityCalendar();
+        }
+
     }
 }
