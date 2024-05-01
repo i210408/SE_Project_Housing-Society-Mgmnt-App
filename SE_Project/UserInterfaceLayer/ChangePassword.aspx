@@ -56,7 +56,11 @@
                 <asp:TextBox ID="NewPassw" runat="server"></asp:TextBox>
                 <br />
                 <br />
-                <asp:Button ID="Button1" runat="server" Text="Button" />
+                <asp:Button ID="Button1" runat="server" Text="Button" OnClick="Button1_Click1" />
+                
+                <br />
+                <br />
+                <asp:Label ID="errorlabel" runat="server" Style="color:red"></asp:Label>
                 
             </th>
         </tr>

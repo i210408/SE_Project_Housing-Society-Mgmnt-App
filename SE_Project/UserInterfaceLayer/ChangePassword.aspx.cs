@@ -62,5 +62,18 @@ namespace UserInterfaceLayer
             string newpassw=NewPassw.Text.ToString();
             //Function In Progress
         }
+
+        protected void Button1_Click1(object sender, EventArgs e)
+        {
+            var cntrllr = (Controller)Session["Controller"];
+           if(cntrllr.ChangePassword(OldPassw.Text, NewPassw.Text)==false)
+            {
+                errorlabel.Text = "The old password was entered incorrectly. Please try again.";
+            }
+            else
+            {
+                Response.Redirect("HomepageA.aspx");
+            }
+        }
     }
 }
