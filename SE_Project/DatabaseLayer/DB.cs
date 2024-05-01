@@ -218,19 +218,19 @@ namespace DatabaseLayer
 
                 if (homeownerId != -1)
                 {
-                   
-                        string insertBillQuery = "INSERT INTO Bills (username, amount, issue_date, due_date, bill_type) VALUES (@Username, @Amount, @IssueDate, @DueDate, @Reason)";
-                        SqlCommand command = new SqlCommand(insertBillQuery, connection);
-                        command.Parameters.AddWithValue("@Username", homeownerName);
-                        command.Parameters.AddWithValue("@Amount", amount);
-                        command.Parameters.AddWithValue("@IssueDate", issueDate);
-                        command.Parameters.AddWithValue("@DueDate", dueDate);
-                        command.Parameters.AddWithValue("@Reason", reason);
 
-                        connection.Open();
-                        int rowsAffected = command.ExecuteNonQuery();
-                        Console.WriteLine($"{rowsAffected} row(s) inserted into Bills table.");
-                   
+                    string insertBillQuery = "INSERT INTO Bills (username, amount, issue_date, due_date, bill_type) VALUES (@Username, @Amount, @IssueDate, @DueDate, @Reason)";
+                    SqlCommand command = new SqlCommand(insertBillQuery, connection);
+                    command.Parameters.AddWithValue("@Username", homeownerName);
+                    command.Parameters.AddWithValue("@Amount", amount);
+                    command.Parameters.AddWithValue("@IssueDate", issueDate);
+                    command.Parameters.AddWithValue("@DueDate", dueDate);
+                    command.Parameters.AddWithValue("@Reason", reason);
+
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+                    Console.WriteLine($"{rowsAffected} row(s) inserted into Bills table.");
+
                 }
                 else
                 {
@@ -311,7 +311,7 @@ namespace DatabaseLayer
             }
         }
 
-   
+
 
         public static void ChangeHomeownerPassword(string homeownerUsername, string currentPassword, string newPassword)
         {
@@ -542,7 +542,7 @@ namespace DatabaseLayer
 
                 if (userCount > 0)
                 {
-         
+
                     string updatePasswordQuery = "UPDATE Users SET password = @NewPassword WHERE user_id = @UserId";
 
                     SqlCommand updateCommand = new SqlCommand(updatePasswordQuery, connection);
@@ -551,7 +551,7 @@ namespace DatabaseLayer
 
                     int rowsAffected = updateCommand.ExecuteNonQuery();
 
-                   // Console.WriteLine($"{rowsAffected} user password(s) updated.");
+                    // Console.WriteLine($"{rowsAffected} user password(s) updated.");
                 }
                 else
                 {
@@ -559,6 +559,128 @@ namespace DatabaseLayer
                 }
             }
         }
+
+
+        public static bool PayBillOnline(string username)
+        {
+           
+            string updatePaymentStatusQuery = "UPDATE Bills SET payment_status = 'paid' WHERE username = @Username";
+
+         
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+      
+                using (SqlCommand command = new SqlCommand(updatePaymentStatusQuery, connection))
+                {
+                    
+                    command.Parameters.AddWithValue("@Username", username);
+
+                    // Open the connection
+                    connection.Open();
+
+                    try
+                    {
+                        // Execute the command
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        // Check if any rows were affected
+                        if (rowsAffected > 0)
+                        {
+                            Console.WriteLine($"Payment status updated to 'paid' for {username}.");
+                            return true;
+                        }
+                        else
+                        {
+                            Console.WriteLine($"No bills found for the user {username}.");
+                            return false;
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"An error occurred: {ex.Message}");
+                        return false;
+                    }
+                }
+            }
+        }
+
+
+
+        public static void RegisterVisitor(string visitorName, int homeownerId)
+        {
+            string insertVisitorQuery = "INSERT INTO Visitors (name, homeowner_id) VALUES (@VisitorName, @HomeownerId)";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                // Create a SqlCommand object with the query and connection
+                using (SqlCommand command = new SqlCommand(insertVisitorQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@VisitorName", visitorName);
+                    command.Parameters.AddWithValue("@HomeownerId", homeownerId);
+
+                    connection.Open();
+
+                    try
+                    {
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            Console.WriteLine("Visitor registered successfully.");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Failed to register visitor.");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"An error occurred: {ex.Message}");
+                    }
+                }
+            }
+        }
+
+
+
+
+        //register facilities
+        public static void RegisterService(string serviceName, string serviceDescription, decimal serviceCost)
+        {
+            
+            string insertServiceQuery = "INSERT INTO Services (service_name, service_description, service_cost) VALUES (@ServiceName, @ServiceDescription, @ServiceCost)";
+
+ 
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+          
+                using (SqlCommand command = new SqlCommand(insertServiceQuery, connection))
+                {
+               
+                    command.Parameters.AddWithValue("@ServiceName", serviceName);
+                    command.Parameters.AddWithValue("@ServiceDescription", serviceDescription);
+                    command.Parameters.AddWithValue("@ServiceCost", serviceCost);
+
+        
+                    connection.Open();
+
+                    try
+                    {
+                 
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        Console.WriteLine($"{rowsAffected} service(s) registered.");
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"An error occurred: {ex.Message}");
+                    }
+                }
+            }
+        }
+
+
+
 
 
 
