@@ -126,6 +126,10 @@
     <Content Include="LoginH.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="PayBills.aspx" />
+    <Content Include="RegisterFacilities.aspx" />
+    <Content Include="RegisterVisitors.aspx" />
+    <Content Include="ReqMaintainence.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -157,6 +161,7 @@
     <Content Include="HomepageA.aspx" />
     <Content Include="IssueBills.aspx" />
     <Content Include="NotifsIn.aspx" />
+    <Content Include="SubmitFeedback.aspx" />
     <Content Include="VeiwNotifs.aspx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
@@ -186,7 +191,9 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="ViewAlerts.aspx" />
     <Content Include="ViewCommCal.aspx" />
+    <Content Include="ViewCommCalandarH.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="ViewUserData.aspx" />
     <Content Include="Web.config" />
@@ -234,7 +241,35 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="PayBills.aspx.cs">
+      <DependentUpon>PayBills.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PayBills.aspx.designer.cs">
+      <DependentUpon>PayBills.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegisterFacilities.aspx.cs">
+      <DependentUpon>RegisterFacilities.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegisterFacilities.aspx.designer.cs">
+      <DependentUpon>RegisterFacilities.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RegisterVisitors.aspx.cs">
+      <DependentUpon>RegisterVisitors.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RegisterVisitors.aspx.designer.cs">
+      <DependentUpon>RegisterVisitors.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReqMaintainence.aspx.cs">
+      <DependentUpon>ReqMaintainence.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReqMaintainence.aspx.designer.cs">
+      <DependentUpon>ReqMaintainence.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -249,12 +284,33 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="SubmitFeedback.aspx.cs">
+      <DependentUpon>SubmitFeedback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SubmitFeedback.aspx.designer.cs">
+      <DependentUpon>SubmitFeedback.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewAlerts.aspx.cs">
+      <DependentUpon>ViewAlerts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewAlerts.aspx.designer.cs">
+      <DependentUpon>ViewAlerts.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewCommCal.aspx.cs">
       <DependentUpon>ViewCommCal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ViewCommCal.aspx.designer.cs">
       <DependentUpon>ViewCommCal.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewCommCalandarH.aspx.cs">
+      <DependentUpon>ViewCommCalandarH.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewCommCalandarH.aspx.designer.cs">
+      <DependentUpon>ViewCommCalandarH.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

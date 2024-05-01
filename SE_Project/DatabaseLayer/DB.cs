@@ -54,25 +54,24 @@ namespace DatabaseLayer
             }
         }
 
-        public static void InsertFeedback(int userId, int providerId, string serviceName, string feedbackText, int feedbackRating)
+        public static void InsertFeedback(int userId, string serviceName, string feedbackText, int feedbackRating)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                // Find service ID based on service name
-                int serviceId = GetServiceIdByName(serviceName);
+                //// Find service ID based on service name
+                //int serviceId = GetServiceIdByName(serviceName);
 
-                if (serviceId == -1)
-                {
-                    Console.WriteLine("Service not found.");
-                    return;
-                }
+                //if (serviceId == -1)
+                //{
+                //    Console.WriteLine("Service not found.");
+                //    return;
+                //}
 
-                string insertFeedbackQuery = "INSERT INTO Feedback (user_id, provider_id, service_id, feedback_text, feedback_rating) VALUES (@UserId, @ProviderId, @ServiceId, @FeedbackText, @FeedbackRating)";
+                string insertFeedbackQuery = "INSERT INTO Feedback (user_id, service_name, feedback_text, feedback_rating) VALUES (@UserId, @serviceName, @FeedbackText, @FeedbackRating)";
                 SqlCommand command = new SqlCommand(insertFeedbackQuery, connection);
                 command.Parameters.AddWithValue("@UserId", userId);
-                command.Parameters.AddWithValue("@ProviderId", providerId);
-                command.Parameters.AddWithValue("@ServiceId", serviceId);
                 command.Parameters.AddWithValue("@FeedbackText", feedbackText);
+                command.Parameters.AddWithValue("@serviceName", serviceName);
                 command.Parameters.AddWithValue("@FeedbackRating", feedbackRating);
 
                 connection.Open();
@@ -219,7 +218,7 @@ namespace DatabaseLayer
                 if (homeownerId != -1)
                 {
 
-                    string insertBillQuery = "INSERT INTO Bills (username, amount, issue_date, due_date, bill_type) VALUES (@Username, @Amount, @IssueDate, @DueDate, @Reason)";
+                    string insertBillQuery = "INSERT INTO Bills (username, amount, issue_date, due_date, payment_status, bill_type) VALUES (@Username, @Amount, @IssueDate, @DueDate,'unpaid', @Reason)";
                     SqlCommand command = new SqlCommand(insertBillQuery, connection);
                     command.Parameters.AddWithValue("@Username", homeownerName);
                     command.Parameters.AddWithValue("@Amount", amount);
@@ -606,9 +605,9 @@ namespace DatabaseLayer
 
 
 
-        public static void RegisterVisitor(string visitorName, int userId)
+        public static bool RegisterVisitor(string visitorName, int userId)
         {
-            string insertVisitorQuery = "INSERT INTO Visitors (name, user_id) VALUES (@VisitorName, @UserId)";
+            string insertVisitorQuery = "INSERT INTO Visitors (name, homeowner_id) VALUES (@VisitorName, @UserId)";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -627,15 +626,18 @@ namespace DatabaseLayer
                         if (rowsAffected > 0)
                         {
                             Console.WriteLine("Visitor registered successfully.");
+                            return true;
                         }
                         else
                         {
                             Console.WriteLine("Failed to register visitor.");
+                            return false;
                         }
                     }
                     catch (Exception ex)
                     {
                         Console.WriteLine($"An error occurred: {ex.Message}");
+                        return false;
                     }
                 }
             }
@@ -661,6 +663,40 @@ namespace DatabaseLayer
                     command.Parameters.AddWithValue("@ServiceName", serviceName);
                     command.Parameters.AddWithValue("@ServiceDescription", serviceDescription);
                     command.Parameters.AddWithValue("@ServiceCost", serviceCost);
+
+
+                    connection.Open();
+
+                    try
+                    {
+
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        Console.WriteLine($"{rowsAffected} service(s) registered.");
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine($"An error occurred: {ex.Message}");
+                    }
+                }
+            }
+        }
+
+        //register facilities
+        public static void RegisterRequest(string problem, int hid)
+        {
+
+            string insertServiceQuery = "INSERT INTO Requests (problem, homeowner_id, status_problem) VALUES (@Problem, @HomeOwnerID, 'active')";
+
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+
+                using (SqlCommand command = new SqlCommand(insertServiceQuery, connection))
+                {
+
+                    command.Parameters.AddWithValue("@Problem", problem);
+                    command.Parameters.AddWithValue("@HomeOwnerID", hid);
 
 
                     connection.Open();
@@ -764,11 +800,11 @@ namespace DatabaseLayer
                 string retrieveBillsQuery = @"
             SELECT b.amount, b.issue_date, b.due_date, b.payment_status, b.bill_type
             FROM Bills b
-            INNER JOIN Users u ON b.user_id = u.user_id
+            INNER JOIN Users u ON b.username = u.username
             WHERE u.username = @Username";
 
                 SqlCommand command = new SqlCommand(retrieveBillsQuery, connection);
-                command.Parameters.AddWithValue("@Username", username);
+                command.Parameters.AddWithValue("@username", username);
 
                 connection.Open();
 

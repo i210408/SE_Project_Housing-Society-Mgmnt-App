@@ -75,12 +75,18 @@ namespace BusinessLogicLayer
 
         // Insert Feedback.
 
-        public void InsertFeedback(int providerID, string serviceName, string feedbackText, int feedbackRating)
+        public void InsertFeedback(string serviceName, string feedbackText, int feedbackRating)
         {
             int currentUser = accountManager.currentUser.GetUserID();
-            FeedbackManager.InsertFeedback(currentUser, providerID, serviceName, feedbackText, feedbackRating);
+            FeedbackManager.InsertFeedback(currentUser, serviceName, feedbackText, feedbackRating);
         }
         
+        public void ReqMaintainence(string problem)
+        {
+            int hid = accountManager.currentUser.GetUserID();
+            ServiceManager.RegisterRequest(problem, hid);
+        }
+
 
         // View feedback provided by all users for all services.
         public static List<string> ViewFeedback()
@@ -194,6 +200,12 @@ namespace BusinessLogicLayer
         {
             string userName = accountManager.currentUser.GetUserName();
             return BillsManager.RetrieveBills(userName);
+        }
+
+        public bool RegisterVisitor(string visitorname)
+        {
+            int uid = accountManager.currentUser.GetUserID();
+            return AccountManager.RegisterVisitor(visitorname, uid);
         }
 
         // View Community Calender.

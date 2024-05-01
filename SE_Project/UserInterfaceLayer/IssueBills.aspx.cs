@@ -65,16 +65,11 @@ namespace UserInterfaceLayer
                 if(int.TryParse(DaysBill.Text.ToString(),out s) == true)
                 {
                     string reason = Reason.Text.ToString();
-                if ((reason=="gas")||(reason=="electrity")||(reason=="internet")){                    
                         decimal v;
                     Decimal.TryParse(AmmtBill.Text.ToString(), out v);
                     Controller.IssueBill(UserBill.Text.ToString(),v, Convert.ToInt32(DaysBill.Text.ToString()), Reason.Text.ToString());
                         Response.Redirect("HomepageA.aspx");
-                }
-                else
-                {
-                    Console.WriteLine("Bill Type not valid");
-                }
+                
             }
                 else
                 {

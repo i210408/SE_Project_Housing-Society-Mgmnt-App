@@ -29,7 +29,7 @@ namespace UserInterfaceLayer
                 this.Session["Controller"] = controller1;
                 if (Homeowner.Checked == true)
                 {
-                    Response.Redirect("HomepageA.aspx");
+                    Response.Redirect("HomepageH.aspx");
                 }
                 else if (Admin.Checked == true)
                 {
