@@ -166,6 +166,27 @@ namespace BusinessLogicLayer
             return EventManager.AddEventToCalendar(eventTitle, eventDescription, eventDate);
         }
 
+        // Pay Bills.
+
+        public void PayBills()
+        {
+            string userName = accountManager.currentUser.GetUserName();
+            BillsManager.PayBills(userName);
+        }
+
+        // Register Service.
+
+        public static void RegisterService(string serviceName, string serviceDescription, decimal serviceCost)
+        {
+            ServiceManager.RegisterService(serviceName, serviceDescription, serviceCost);
+        }
+
+        // Assign Worker.
+
+        public static void AssignWorker(string problem, string workerType)
+        {
+            ServiceManager.AssignWorker(problem, workerType);
+        }
 
     }
 }

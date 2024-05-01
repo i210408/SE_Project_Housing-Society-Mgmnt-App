@@ -684,7 +684,7 @@ namespace DatabaseLayer
 
 
 
-        static void AssignWorkerToProblem(string problem, string workerType)
+        public static void AssignWorkerToProblem(string problem, string workerType)
         {
             string query = "SELECT TOP 1 worker_id FROM Maintenance WHERE worker_type = @WorkerType AND status = 'free'";
 
