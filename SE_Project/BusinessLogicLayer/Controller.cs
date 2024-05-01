@@ -196,5 +196,12 @@ namespace BusinessLogicLayer
             return BillsManager.RetrieveBills(userName);
         }
 
+        // View Community Calender.
+
+        public static List<(string, string, DateTime)> ViewCommunityCalendar()
+        {
+            return EventManager.RetrieveCalendar();
+        }
+
     }
 }
