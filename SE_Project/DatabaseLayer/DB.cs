@@ -563,16 +563,16 @@ namespace DatabaseLayer
 
         public static bool PayBillOnline(string username)
         {
-           
+
             string updatePaymentStatusQuery = "UPDATE Bills SET payment_status = 'paid' WHERE username = @Username";
 
-         
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-      
+
                 using (SqlCommand command = new SqlCommand(updatePaymentStatusQuery, connection))
                 {
-                    
+
                     command.Parameters.AddWithValue("@Username", username);
 
                     // Open the connection
@@ -606,9 +606,9 @@ namespace DatabaseLayer
 
 
 
-        public static void RegisterVisitor(string visitorName, int homeownerId)
+        public static void RegisterVisitor(string visitorName, int userId)
         {
-            string insertVisitorQuery = "INSERT INTO Visitors (name, homeowner_id) VALUES (@VisitorName, @HomeownerId)";
+            string insertVisitorQuery = "INSERT INTO Visitors (name, user_id) VALUES (@VisitorName, @UserId)";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -616,7 +616,7 @@ namespace DatabaseLayer
                 using (SqlCommand command = new SqlCommand(insertVisitorQuery, connection))
                 {
                     command.Parameters.AddWithValue("@VisitorName", visitorName);
-                    command.Parameters.AddWithValue("@HomeownerId", homeownerId);
+                    command.Parameters.AddWithValue("@UserId", userId);
 
                     connection.Open();
 
@@ -644,29 +644,30 @@ namespace DatabaseLayer
 
 
 
+
         //register facilities
         public static void RegisterService(string serviceName, string serviceDescription, decimal serviceCost)
         {
-            
+
             string insertServiceQuery = "INSERT INTO Services (service_name, service_description, service_cost) VALUES (@ServiceName, @ServiceDescription, @ServiceCost)";
 
- 
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-          
+
                 using (SqlCommand command = new SqlCommand(insertServiceQuery, connection))
                 {
-               
+
                     command.Parameters.AddWithValue("@ServiceName", serviceName);
                     command.Parameters.AddWithValue("@ServiceDescription", serviceDescription);
                     command.Parameters.AddWithValue("@ServiceCost", serviceCost);
 
-        
+
                     connection.Open();
 
                     try
                     {
-                 
+
                         int rowsAffected = command.ExecuteNonQuery();
 
                         Console.WriteLine($"{rowsAffected} service(s) registered.");
@@ -683,11 +684,45 @@ namespace DatabaseLayer
 
 
 
+        static void AssignWorkerToProblem(string problem, string workerType)
+        {
+            string query = "SELECT TOP 1 worker_id FROM Maintenance WHERE worker_type = @WorkerType AND status = 'free'";
 
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@WorkerType", workerType);
+
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    if (reader.Read())
+                    {
+                        int workerId = reader.GetInt32(0);
+                        reader.Close();
+
+                        string updateQuery = "UPDATE Maintenance SET status = 'assigned' WHERE worker_id = @WorkerId";
+
+                        using (SqlCommand updateCommand = new SqlCommand(updateQuery, connection))
+                        {
+                            updateCommand.Parameters.AddWithValue("@WorkerId", workerId);
+                            updateCommand.ExecuteNonQuery();
+                        }
+
+                     //   Console.WriteLine($"Assigned worker with ID {workerId} to solve the problem: {problem}");
+                    }
+                    else
+                    {
+                     //   Console.WriteLine($"No available worker found for type: {workerType}");
+                    }
+                }
+
+            }
+
+        }
 
     }
-
-
 
 }
 
