@@ -15,5 +15,10 @@ namespace BusinessLogicLayer
             DateTime dueDate = issueDate.AddDays(days);
             DB.IssueBillToHomeowner(userName, amount, issueDate, dueDate, reason);
         }
+
+        public static void PayBills(string userName)
+        {
+            DB.PayBillOnline(userName);
+        }
     }
 }
