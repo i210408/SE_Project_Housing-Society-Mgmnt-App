@@ -722,6 +722,86 @@ namespace DatabaseLayer
 
         }
 
+
+        public static void ViewCommunityCalendar()
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string retrieveEventsQuery = "SELECT event_title, event_description, event_date FROM Calendar";
+
+                SqlCommand command = new SqlCommand(retrieveEventsQuery, connection);
+
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        string eventTitle = reader.GetString(0);
+                        string eventDescription = reader.GetString(1);
+                        DateTime eventDate = reader.GetDateTime(2);
+
+                        Console.WriteLine($"Event: {eventTitle}");
+                        Console.WriteLine($"Description: {eventDescription}");
+                        Console.WriteLine($"Date: {eventDate.ToShortDateString()}");
+                        Console.WriteLine();
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("No events found in the community calendar.");
+                }
+            }
+        }
+
+
+
+        public static List<string> ViewBills(string username)
+        {
+            List<string> bills = new List<string>();
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string retrieveBillsQuery = @"
+            SELECT b.amount, b.issue_date, b.due_date, b.payment_status, b.bill_type
+            FROM Bills b
+            INNER JOIN Users u ON b.user_id = u.user_id
+            WHERE u.username = @Username";
+
+                SqlCommand command = new SqlCommand(retrieveBillsQuery, connection);
+                command.Parameters.AddWithValue("@Username", username);
+
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        decimal amount = reader.GetDecimal(0);
+                        DateTime issueDate = reader.GetDateTime(1);
+                        DateTime dueDate = reader.GetDateTime(2);
+                        string paymentStatus = reader.GetString(3);
+                        string billType = reader.GetString(4);
+
+                        string billInfo = $"Amount: {amount}, Issue Date: {issueDate}, Due Date: {dueDate}, Payment Status: {paymentStatus}, Bill Type: {billType}";
+                        bills.Add(billInfo);
+                    }
+                }
+                else
+                {
+                    bills.Add("No bills found for this user.");
+                }
+            }
+
+            return bills;
+        }
+
+
+
     }
 
 }
