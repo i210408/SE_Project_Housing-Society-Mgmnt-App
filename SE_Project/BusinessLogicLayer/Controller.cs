@@ -188,5 +188,13 @@ namespace BusinessLogicLayer
             ServiceManager.AssignWorker(problem, workerType);
         }
 
+        // View Bills.
+
+        public List<string> ViewBills()
+        {
+            string userName = accountManager.currentUser.GetUserName();
+            return BillsManager.RetrieveBills(userName);
+        }
+
     }
 }

@@ -20,5 +20,10 @@ namespace BusinessLogicLayer
         {
             DB.PayBillOnline(userName);
         }
+
+        public static List<string> RetrieveBills(string userName)
+        {
+            return DB.ViewBills(userName);
+        }
     }
 }

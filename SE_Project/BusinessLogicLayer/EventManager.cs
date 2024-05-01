@@ -18,5 +18,6 @@ namespace BusinessLogicLayer
             DB.AddEventToCalendar(eventTitle, eventDescription, eventDate);
             return true;
         }
+
     }
 }
