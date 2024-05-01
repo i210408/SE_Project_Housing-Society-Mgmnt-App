@@ -46,9 +46,25 @@
     <asp:Label ID="Label6" runat="server" Text="View All User Data"></asp:Label>
 </th>
             <th id="Work" style="border:8px double midnightblue; border-radius:5px; width: 991px; height: 546px;">
-                <label style="font-size:3vw;color:midnightblue;font-family:Arial, Helvetica, sans-serif"><u>Add to Calander<br /></u></label>
+                <label style="font-size:3vw;color:midnightblue;font-family:Arial, Helvetica, sans-serif"><u>Add to Calander</u></label>
+                <br />
+                <br />
+                <br />
+                <asp:Label ID="Label7" runat="server" Text="Event Title: "></asp:Label>
+                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                <br />
+                <asp:Label ID="Label8" runat="server" Text="Event Description: "></asp:Label>
+                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                <br />
+                <asp:Label ID="Label9" runat="server" Text="Days Till Event: "></asp:Label>
+                <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                <br />
                 <br />
                 <asp:Button ID="AddEvent" runat="server" OnClick="AddEvent_Click" Text="Add Event" />
+                <br />
+                <br />
+                <br />
+                <asp:Label ID="Label10" runat="server" Style="color:red"></asp:Label>
             </th>
         </tr>
     </table>

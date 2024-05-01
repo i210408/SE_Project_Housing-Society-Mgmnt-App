@@ -1,6 +1,7 @@
 ﻿using BusinessLogicLayer;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -57,7 +58,15 @@ namespace UserInterfaceLayer
 
         protected void AddEvent_Click(object sender, EventArgs e)
         {
-            //TO DO: Function to add to calander
+            var cntrllr = (Controller)Session["Controller"];
+            if(cntrllr.AddEventToCalender(TextBox1.Text, TextBox2.Text, (DateTime.Now).AddDays(Int32.Parse(TextBox3.Text))) == false)
+            {
+                Label10.Text = "There is already an event on " + DateTime.Now.AddDays(Int32.Parse(TextBox3.Text));
+            }
+            else
+            {
+                Response.Redirect("HomepageA.aspx");
+            }
         }
     }
 }

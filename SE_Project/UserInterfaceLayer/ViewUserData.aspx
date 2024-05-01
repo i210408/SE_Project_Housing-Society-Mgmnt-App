@@ -48,10 +48,9 @@
 </th>
             <th id="Work" style="border:8px double midnightblue; border-radius:5px; width: 991px; height: 546px;">
                 <label style="font-size:3vw;color:midnightblue;font-family:Arial, Helvetica, sans-serif"><u>View All User Data:</u></label>
-                <table style="margin:0 auto;text-align:center">
-                    <tr><th style="font-size:20px"><u> Sidebar Guide: </u></th></tr>
-                    <tr><td><label>For futher Questions and Queries, dial 2211</label></td></tr>
-                </table>
+                <br />
+                <br />
+                <asp:Label ID="Userdata" runat="server"></asp:Label>
             </th>
         </tr>
     </table>

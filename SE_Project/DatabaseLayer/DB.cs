@@ -6,7 +6,7 @@ namespace DatabaseLayer
 {
     public class DB
     {
-        static string connectionString = "Data Source=AZHANSPC\\SQLEXPRESS;Initial Catalog=df;Integrated Security=True";
+        static string connectionString = "Data Source=LAPTOP-R7A4A3IR\\SQLEXPRESS;Initial Catalog=df;Integrated Security=True";
 
         static string insertQuery = "INSERT INTO Users (username, password, email, user_type) VALUES (@Username, @Password, @Email, @UserType)";
         static string retrieveQuery = "SELECT username, password, email, user_type FROM Users";

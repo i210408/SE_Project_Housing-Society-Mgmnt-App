@@ -12,7 +12,15 @@ namespace UserInterfaceLayer
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //TO DO: Load all user data
+            if (Controller.GetAllResidentData() != null)
+            {
+                var listresidents = Controller.GetAllResidentData();
+                for (int i = 0; i < listresidents.Count; i++)
+                {
+                    Userdata.Text = Userdata.Text.ToString() +"ID: " + listresidents[i].userId.ToString() + "  Name: " +listresidents[i].username.ToString() + "  Email: " +listresidents[i].email.ToString() + "<br>";
+                }
+
+            }
         }
         protected void DelH_Click(object sender, EventArgs e)
         {
