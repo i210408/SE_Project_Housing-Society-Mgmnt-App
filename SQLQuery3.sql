@@ -535,3 +535,54 @@ ALTER TABLE dbo.Advertisements ADD CONSTRAINT FK_Advertisements_Users FOREIGN KE
 
 select * from Advertisements
 select  * from Calendar
+
+
+
+
+-- Drop the existing Visitors table if it exists
+IF OBJECT_ID('dbo.Visitors', 'U') IS NOT NULL
+    DROP TABLE dbo.Visitors;
+
+-- Create the Visitors table with user_id instead of homeowner_id
+CREATE TABLE Visitors (
+    visitor_id INT IDENTITY(1,1) PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    user_id INT NOT NULL,
+    FOREIGN KEY (user_id) REFERENCES dbo.Users(user_id)
+);
+
+-- Drop the existing Workers table if it exists
+IF OBJECT_ID('dbo.Workers', 'U') IS NOT NULL
+    DROP TABLE dbo.Workers;
+
+
+	-- Drop the existing Workers table if it exists
+IF OBJECT_ID('dbo.Workers', 'U') IS NOT NULL
+    DROP TABLE dbo.Workers;
+
+-- Drop the existing Maintenance table if it exists
+IF OBJECT_ID('dbo.Maintenance', 'U') IS NOT NULL
+    DROP TABLE dbo.Maintenance;
+
+
+
+
+
+	-- Create the Maintenance table with worker_id, worker_type, problem, and status columns
+CREATE TABLE Maintenance (
+    worker_id INT IDENTITY(1,1) PRIMARY KEY,
+    worker_type VARCHAR(50) NOT NULL CHECK (worker_type IN ('plumber', 'electrician', 'painter', 'other')),
+    problem VARCHAR(100) NOT NULL,
+    status VARCHAR(20) NOT NULL CHECK (status IN ('free', 'available'))
+);
+
+-- Insert random data into the Maintenance table
+INSERT INTO Maintenance (worker_type, problem, status)
+VALUES 
+    ('plumber', 'Leaking pipes', 'free'),
+    ('electrician', 'Faulty wiring', 'available'),
+    ('painter', 'Wall painting', 'free'),
+    ('plumber', 'Clogged drain', 'available'),
+    ('other', 'General maintenance', 'free');
+
+	select * from Maintenance
