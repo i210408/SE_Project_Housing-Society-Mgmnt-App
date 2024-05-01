@@ -723,8 +723,10 @@ namespace DatabaseLayer
         }
 
 
-        public static void ViewCommunityCalendar()
+        public static List<(string, string, DateTime)> ViewCommunityCalendar()
         {
+            List<(string, string, DateTime)> events = new List<(string, string, DateTime)>();
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string retrieveEventsQuery = "SELECT event_title, event_description, event_date FROM Calendar";
@@ -743,17 +745,12 @@ namespace DatabaseLayer
                         string eventDescription = reader.GetString(1);
                         DateTime eventDate = reader.GetDateTime(2);
 
-                        Console.WriteLine($"Event: {eventTitle}");
-                        Console.WriteLine($"Description: {eventDescription}");
-                        Console.WriteLine($"Date: {eventDate.ToShortDateString()}");
-                        Console.WriteLine();
+                        events.Add((eventTitle, eventDescription, eventDate));
                     }
                 }
-                else
-                {
-                    Console.WriteLine("No events found in the community calendar.");
-                }
             }
+
+            return events;
         }
 
 
