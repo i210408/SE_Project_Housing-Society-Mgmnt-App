@@ -793,7 +793,7 @@ namespace DatabaseLayer
                 }
                 else
                 {
-                    bills.Add("No bills found for this user.");
+                   // bills.Add("No bills found for this user.");
                 }
             }
 
