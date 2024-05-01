@@ -18,5 +18,10 @@ namespace BusinessLogicLayer
         {
             DB.AssignWorkerToProblem(problem, workerType);
         }
+
+        public static void RegisterRequest(string problem, int id)
+        {
+            DB.RegisterRequest(problem, id);
+        }
     }
 }

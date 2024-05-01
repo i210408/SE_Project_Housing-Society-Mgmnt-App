@@ -74,6 +74,11 @@ namespace BusinessLogicLayer
             return DB.GetAllHomeOwnerData();
         }
 
+        public static bool RegisterVisitor(string visitorname, int userID)
+        {
+            return DB.RegisterVisitor(visitorname, userID);
+        }
+
         public void Logout()
         {
             this.currentUser = null;
