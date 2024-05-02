@@ -472,23 +472,45 @@ namespace DatabaseLayer
 
 
 
-        public static void AddEventToCalendar(string eventTitle, string eventDescription, DateTime eventDate)
+        public static bool AddEventToCalendar(string eventTitle, string eventDescription, DateTime eventDate)
         {
-            string insertQuery = "INSERT INTO Calendar (event_title, event_description, event_date) VALUES (@Title, @Description, @Date)";
+            // Check if an event already exists for the specified date
+            string checkExistingEventQuery = "SELECT COUNT(*) FROM Calendar WHERE event_date = @Date";
+            bool eventAdded = false;
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                SqlCommand command = new SqlCommand(insertQuery, connection);
-                command.Parameters.AddWithValue("@Title", eventTitle);
-                command.Parameters.AddWithValue("@Description", eventDescription);
-                command.Parameters.AddWithValue("@Date", eventDate.Date);
+                SqlCommand checkCommand = new SqlCommand(checkExistingEventQuery, connection);
+                checkCommand.Parameters.AddWithValue("@Date", eventDate.Date);
 
                 connection.Open();
-                int rowsAffected = command.ExecuteNonQuery();
+                int existingEventsCount = (int)checkCommand.ExecuteScalar();
 
-                Console.WriteLine($"{rowsAffected} event(s) added to the calendar.");
+                if (existingEventsCount == 0)
+                {
+                    // No event exists for the specified date, proceed to add the new event
+                    string insertQuery = "INSERT INTO Calendar (event_title, event_description, event_date) VALUES (@Title, @Description, @Date)";
+
+                    using (SqlCommand command = new SqlCommand(insertQuery, connection))
+                    {
+                        command.Parameters.AddWithValue("@Title", eventTitle);
+                        command.Parameters.AddWithValue("@Description", eventDescription);
+                        command.Parameters.AddWithValue("@Date", eventDate.Date);
+
+                        int rowsAffected = command.ExecuteNonQuery();
+                        eventAdded = rowsAffected > 0;
+                        Console.WriteLine($"{rowsAffected} event(s) added to the calendar.");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("An event already exists for the specified date. No event added.");
+                }
             }
+
+            return eventAdded;
         }
+
 
 
 
@@ -720,8 +742,10 @@ namespace DatabaseLayer
 
 
 
-        public static void AssignWorkerToProblem(string problem, string workerType)
+        public static bool DispatchWorker(string problem, string workerType)
         {
+            bool workerDispatched = false;
+
             string query = "SELECT TOP 1 worker_id FROM Maintenance WHERE worker_type = @WorkerType AND status = 'free'";
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -739,24 +763,34 @@ namespace DatabaseLayer
                         reader.Close();
 
                         string updateQuery = "UPDATE Maintenance SET status = 'assigned' WHERE worker_id = @WorkerId";
-
                         using (SqlCommand updateCommand = new SqlCommand(updateQuery, connection))
                         {
                             updateCommand.Parameters.AddWithValue("@WorkerId", workerId);
-                            updateCommand.ExecuteNonQuery();
+                            int rowsAffected = updateCommand.ExecuteNonQuery();
+                            workerDispatched = rowsAffected > 0;
                         }
 
-                     //   Console.WriteLine($"Assigned worker with ID {workerId} to solve the problem: {problem}");
+                        // Delete the corresponding entry from the Request table
+                        string deleteRequestQuery = "DELETE FROM Request WHERE problem = @Problem";
+                        using (SqlCommand deleteCommand = new SqlCommand(deleteRequestQuery, connection))
+                        {
+                            deleteCommand.Parameters.AddWithValue("@Problem", problem);
+                            deleteCommand.ExecuteNonQuery();
+                        }
+
+                        // Console.WriteLine($"Assigned worker with ID {workerId} to solve the problem: {problem}");
                     }
                     else
                     {
-                     //   Console.WriteLine($"No available worker found for type: {workerType}");
+                        // Console.WriteLine($"No available worker found for type: {workerType}");
                     }
                 }
-
             }
 
+            return workerDispatched;
         }
+
+
 
 
         public static List<(string, string, DateTime)> ViewCommunityCalendar()
@@ -831,6 +865,122 @@ namespace DatabaseLayer
             }
 
             return bills;
+        }
+
+
+
+
+        public static void RegisterRequest(string problem, string problemType, int homeownerId)
+        {
+
+            string insertRequestQuery = "INSERT INTO Request (problem, problem_type, homeowner_id) " +
+                                        "VALUES (@Problem, @ProblemType, @HomeownerId)";
+
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+
+                using (SqlCommand command = new SqlCommand(insertRequestQuery, connection))
+                {
+        
+                    command.Parameters.AddWithValue("@Problem", problem);
+                    command.Parameters.AddWithValue("@ProblemType", problemType);
+                    command.Parameters.AddWithValue("@HomeownerId", homeownerId);
+
+          
+                    connection.Open();
+
+                    try
+                    {
+
+                        int rowsAffected = command.ExecuteNonQuery();
+
+      
+                        if (rowsAffected > 0)
+                        {
+                     //       Console.WriteLine("Request registered successfully.");
+                        }
+                        else
+                        {
+                        //    Console.WriteLine("Failed to register request.");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                    //    Console.WriteLine($"An error occurred: {ex.Message}");
+                    }
+                }
+            }
+        }
+
+
+        public static void CreatePoll(string pollQuestion, DateTime startDate, DateTime endDate, string[] options)
+        {
+            // Insert poll into Polls table
+            int pollId = InsertPoll(pollQuestion, startDate, endDate);
+
+            if (pollId != -1)
+            {
+                // Insert options into PollOptions table
+                foreach (string optionText in options)
+                {
+                    InsertOption(pollId, optionText);
+                }
+            }
+        }
+
+        private static int InsertPoll(string pollQuestion, DateTime startDate, DateTime endDate)
+        {
+            int pollId = -1;
+            string insertQuery = "INSERT INTO Polls (poll_question, poll_start_date, poll_end_date) VALUES (@Question, @StartDate, @EndDate); SELECT SCOPE_IDENTITY();";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(insertQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@Question", pollQuestion);
+                    command.Parameters.AddWithValue("@StartDate", startDate);
+                    command.Parameters.AddWithValue("@EndDate", endDate);
+
+                    connection.Open();
+                    object result = command.ExecuteScalar();
+                    if (result != null && int.TryParse(result.ToString(), out pollId))
+                    {
+                        Console.WriteLine("Poll created successfully.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Failed to create poll.");
+                    }
+                }
+            }
+
+            return pollId;
+        }
+
+        private static void InsertOption(int pollId, string optionText)
+        {
+            string insertQuery = "INSERT INTO PollOptions (poll_id, option_text) VALUES (@PollId, @OptionText)";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(insertQuery, connection))
+                {
+                    command.Parameters.AddWithValue("@PollId", pollId);
+                    command.Parameters.AddWithValue("@OptionText", optionText);
+
+                    connection.Open();
+                    int rowsAffected = command.ExecuteNonQuery();
+                    if (rowsAffected > 0)
+                    {
+                        Console.WriteLine("Option added successfully.");
+                    }
+                    else
+                    {
+                        Console.WriteLine("Failed to add option.");
+                    }
+                }
+            }
         }
 
 
