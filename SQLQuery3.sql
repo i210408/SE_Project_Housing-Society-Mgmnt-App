@@ -586,3 +586,18 @@ VALUES
     ('other', 'General maintenance', 'free');
 
 	select * from Maintenance
+
+
+
+-- Drop the existing Request table if it exists
+IF OBJECT_ID('dbo.Request', 'U') IS NOT NULL
+    DROP TABLE dbo.Request;
+
+-- Create the Request table with problem, problem_type, and homeowner_id columns
+CREATE TABLE Request (
+    request_id INT IDENTITY(1,1) PRIMARY KEY,
+    problem VARCHAR(100) NOT NULL,
+    problem_type VARCHAR(50) NOT NULL CHECK (problem_type IN ('plumbing', 'electrical', 'painting', 'other')),
+    homeowner_id INT NOT NULL,
+    FOREIGN KEY (homeowner_id) REFERENCES dbo.Users(user_id)
+);
