@@ -189,9 +189,9 @@ namespace BusinessLogicLayer
 
         // Assign Worker.
 
-        public static void AssignWorker(string problem, string workerType)
+        public static bool AssignWorker(string problem, string workerType)
         {
-            ServiceManager.AssignWorker(problem, workerType);
+            return ServiceManager.AssignWorker(problem, workerType);
         }
 
         // View Bills.
@@ -215,5 +215,11 @@ namespace BusinessLogicLayer
             return EventManager.RetrieveCalendar();
         }
 
+        // Create Poll.
+
+        public static void CreatePoll(string pollQuestion, DateTime startDate, DateTime endDate, string[] options)
+        {
+            PollManager.CreatePoll(pollQuestion, startDate, endDate, options);
+        }
     }
 }

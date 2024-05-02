@@ -14,9 +14,9 @@ namespace BusinessLogicLayer
             DB.RegisterService(serviceName, serviceDescription, serviceCost);
         }
 
-        public static void AssignWorker(string problem, string workerType)
+        public static bool AssignWorker(string problem, string workerType)
         {
-            DB.AssignWorkerToProblem(problem, workerType);
+            return DB.DispatchWorker(problem, workerType);
         }
 
         public static void RegisterRequest(string problem, int id)
