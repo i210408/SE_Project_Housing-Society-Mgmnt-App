@@ -55,24 +55,24 @@ namespace UserInterfaceLayer
             Response.Redirect("ViewUserData.aspx");
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
-        {
-            string currusername = Session["Username"].ToString();
-            string oldpassw=OldPassw.Text.ToString();
-            string newpassw=NewPassw.Text.ToString();
-            //Function In Progress
-        }
-
         protected void Button1_Click1(object sender, EventArgs e)
         {
             var cntrllr = (Controller)Session["Controller"];
-           if(cntrllr.ChangePassword(OldPassw.Text, NewPassw.Text)==false)
+            if ((string.IsNullOrWhiteSpace(OldPassw.Text) == true) || (string.IsNullOrWhiteSpace(NewPassw.Text) == true))
             {
-                errorlabel.Text = "The old password was entered incorrectly. Please try again.";
+                errorlabel.Text = "Please fill all of the available textboxes.";
             }
             else
+            
             {
-                Response.Redirect("HomepageA.aspx");
+                if (cntrllr.ChangePassword(OldPassw.Text, NewPassw.Text) == false)
+                {
+                    errorlabel.Text = "The old password was entered incorrectly. Please try again.";
+                }
+                else
+                {
+                    Label9.Text = "Your Password was changed successfully!";
+                }
             }
         }
     }

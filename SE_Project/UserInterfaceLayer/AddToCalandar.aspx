@@ -45,7 +45,7 @@
     <br />
     <asp:Label ID="Label6" runat="server" Text="View All User Data"></asp:Label>
 </th>
-            <th id="Work" style="border:8px double midnightblue; border-radius:5px; width: 991px; height: 546px;">
+            <th id="Work" style="border:8px double midnightblue; border-radius:5px; width: 991px; height: 546px;vertical-align:top">
                 <label style="font-size:3vw;color:midnightblue;font-family:Arial, Helvetica, sans-serif"><u>Add to Calander</u></label>
                 <br />
                 <br />
@@ -65,6 +65,9 @@
                 <br />
                 <br />
                 <asp:Label ID="Label10" runat="server" Style="color:red"></asp:Label>
+                <br />
+                <br />
+                <asp:Label ID="Label11" runat="server" ForeColor="Green"></asp:Label>
             </th>
         </tr>
     </table>

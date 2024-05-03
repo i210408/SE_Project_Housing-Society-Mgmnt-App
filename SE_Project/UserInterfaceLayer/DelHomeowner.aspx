@@ -46,9 +46,8 @@
     <br />
     <asp:Label ID="Label7" runat="server" Text="View All User Data"></asp:Label>
 </th>
-            <th id="Work" style="border:8px double midnightblue; border-radius:5px; width: 991px; height: 306px;">
+            <th id="Work" style="border:8px double midnightblue; border-radius:5px; width: 991px; height: 306px;vertical-align:top">
                 <label style="font-size:2.5vw;color:midnightblue;font-family:Arial, Helvetica, sans-serif"><u>Delete Homeowner Account</u></label>
-                
                 <br />
                 <br />
                 <br />
@@ -58,6 +57,13 @@
                 <br />
 &nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Button ID="Delete" runat="server" OnClick="Delete_Click" Text="Delete" />
+                
+                <br />
+                <br />
+                <asp:Label ID="Label8" runat="server" ForeColor="Red"></asp:Label>
+                <br />
+                <br />
+                <asp:Label ID="Label9" runat="server" ForeColor="Green"></asp:Label>
                 
             </th>
         </tr>

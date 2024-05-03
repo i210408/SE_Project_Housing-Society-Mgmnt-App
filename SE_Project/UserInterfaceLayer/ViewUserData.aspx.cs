@@ -21,6 +21,10 @@ namespace UserInterfaceLayer
                 }
 
             }
+            else
+            {
+                Userdata.Text = "There is no available Home Owner account data yet!";
+            }
         }
         protected void DelH_Click(object sender, EventArgs e)
         {

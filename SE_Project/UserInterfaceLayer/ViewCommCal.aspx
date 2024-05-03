@@ -45,7 +45,7 @@
     <br />
     <asp:Label ID="Label7" runat="server" Text="View All User Data"></asp:Label>
 </th>
-            <th id="Work" style="border:8px double midnightblue; border-radius:5px; width: 991px; height: 546px;">
+            <th id="Work" style="border:8px double midnightblue; border-radius:5px; width: 991px; height: 546px;vertical-align:top">
     <label style="font-size:2.5vw;color:midnightblue;font-family:Arial, Helvetica, sans-serif">C<u>ommunity Calanadar:</u><br /> </label>
     <br />
      <br />

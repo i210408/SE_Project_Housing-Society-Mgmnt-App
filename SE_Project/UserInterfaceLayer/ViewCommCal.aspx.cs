@@ -12,7 +12,21 @@ namespace UserInterfaceLayer
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            //TO DO: Comm Cal Output here
+            var listcalan = Controller.ViewCommunityCalendar();
+
+            if (listcalan.Count != 0)
+            {
+                Label6.Text = "";
+                for (int i = 0; i < listcalan.Count; i++)
+                {
+                    Label6.Text = Label6.Text.ToString() + listcalan[i].Item3 + " - " + listcalan[i].Item1 + " : " + listcalan[i].Item2 + "<br>";
+                }
+
+            }
+            else
+            {
+                Label6.Text = "There are no events listed for this month!";
+            }
         }
         protected void DelH_Click(object sender, EventArgs e)
         {
