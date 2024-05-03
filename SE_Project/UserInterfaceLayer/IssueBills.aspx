@@ -68,7 +68,11 @@
 &nbsp;&nbsp;&nbsp;&nbsp;
                 <asp:Button ID="Bill" runat="server" OnClick="Bill_Click" Text="Issue Bill" />
                 <br />
-                <asp:Label ID="WarningL" runat="server"></asp:Label>
+                <asp:Label ID="WarningL" runat="server" ForeColor="Red"></asp:Label>
+                
+                <br />
+                <br />
+                <asp:Label ID="Label11" runat="server" ForeColor="Green"></asp:Label>
                 
             </th>
         </tr>

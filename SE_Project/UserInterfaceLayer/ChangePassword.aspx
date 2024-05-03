@@ -46,7 +46,7 @@
     <br />
     <asp:Label ID="Label8" runat="server" Text="View All User Data"></asp:Label>
 </th>
-            <th id="Work" style="border:8px double midnightblue; border-radius:5px; width: 991px; height: 546px;">
+            <th id="Work" style="border:8px double midnightblue; border-radius:5px; width: 991px; height: 546px;vertical-align:top">
                 <label style="font-size:3vw;color:midnightblue;font-family:Arial, Helvetica, sans-serif"><u>Change Password<br /></u></label>
                 <br />
                 <asp:Label ID="Label4" runat="server" Text="Old Password: "></asp:Label>
@@ -61,6 +61,10 @@
                 <br />
                 <br />
                 <asp:Label ID="errorlabel" runat="server" Style="color:red"></asp:Label>
+                
+                <br />
+                <br />
+                <asp:Label ID="Label9" runat="server" ForeColor="Green"></asp:Label>
                 
             </th>
         </tr>

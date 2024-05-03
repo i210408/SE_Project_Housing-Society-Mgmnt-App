@@ -7,7 +7,7 @@ using DatabaseLayer;
 
 namespace BusinessLogicLayer
 {
-    internal class AccountManager
+    class AccountManager
     {
         public User currentUser;
 

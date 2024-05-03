@@ -56,28 +56,45 @@ namespace UserInterfaceLayer
         }
         protected void Bill_Click(object sender, EventArgs e)
         {
-            //Check the integer inputs for being integer
-            //If any are, alert the warning label
-            //Otherwise, send em in, check the db
-            int s = 0;
-            if(int.TryParse(AmmtBill.Text.ToString(),out s) == true)
+            if ((string.IsNullOrWhiteSpace(UserBill.Text) == false) && (string.IsNullOrWhiteSpace(AmmtBill.Text) == false) && (string.IsNullOrWhiteSpace(DaysBill.Text) == false) && (string.IsNullOrWhiteSpace(Reason.Text) == false))
             {
-                if(int.TryParse(DaysBill.Text.ToString(),out s) == true)
+                int s = 0;
+                if (int.TryParse(AmmtBill.Text.ToString(), out s) == true)
                 {
-                    string reason = Reason.Text.ToString();
-                        decimal v;
-                    Decimal.TryParse(AmmtBill.Text.ToString(), out v);
-                    Controller.IssueBill(UserBill.Text.ToString(),v, Convert.ToInt32(DaysBill.Text.ToString()), Reason.Text.ToString());
-                        Response.Redirect("HomepageA.aspx");
-                
-            }
+                    if (int.TryParse(DaysBill.Text.ToString(), out s) == true)
+                    {
+                        var cntrllr = (Controller)Session["Controller"];
+                        if (cntrllr.validateUser(UserBill.Text))
+                        {
+                            string reason = Reason.Text.ToString();
+                            decimal v;
+                            Decimal.TryParse(AmmtBill.Text.ToString(), out v);
+                            Controller.IssueBill(UserBill.Text.ToString(), v, Convert.ToInt32(DaysBill.Text.ToString()), Reason.Text.ToString());
+                            Label11.Text = "Bill successfully issued!";
+                        }
+                        else
+                        {
+                            Label11.Text = "";
+                            WarningL.Text = "Please enter a valid username.";
+                        }
+
+                    }
+                    else
+                    {
+                        Label11.Text = "";
+                        WarningL.Text = "Write an integer value for the number of days till the bill is due.";
+                    }
+                }
                 else
                 {
-                    WarningL.Text = "Write an integer value for the number of days";
+                    Label11.Text = "";
+                    WarningL.Text = "Write an integer value for the ammount.";
                 }
             }
-            else {
-                WarningL.Text = "Write an integer value for the ammount";
+            else
+            {
+                Label11.Text = "";
+                WarningL.Text = "Please fill all available textboxes.";
             }
 
         }

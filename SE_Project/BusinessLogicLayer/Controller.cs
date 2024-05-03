@@ -27,6 +27,11 @@ namespace BusinessLogicLayer
 
         }
 
+        public bool validateUser(string username)
+        {
+            return AccountManager.ValidateUsername(username);
+        }
+
         // Create a new account.
         public bool SignUp(string userName, string password, string email, string type)
         {

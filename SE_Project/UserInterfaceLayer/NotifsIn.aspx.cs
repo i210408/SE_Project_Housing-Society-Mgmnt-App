@@ -56,9 +56,18 @@ namespace UserInterfaceLayer
         }
         protected void Bcast_Click(object sender, EventArgs e)
         {
-            var controller = (Controller)Session["Controller"];
-            controller.BroadcastNotifications(NotifsInput.Text.ToString());
-            Response.Redirect("HomepageA.aspx");
+            if (string.IsNullOrWhiteSpace(NotifsInput.Text) == false)
+            {
+                var controller = (Controller)Session["Controller"];
+                controller.BroadcastNotifications(NotifsInput.Text.ToString());
+                Label8.Text = "Notification sent successfully!";
+                Label7.Text = "";
+            }
+            else
+            {
+                Label8.Text = "";
+                Label7.Text = "Please fill all of the texboxes.";
+            }
         }
     }
 }

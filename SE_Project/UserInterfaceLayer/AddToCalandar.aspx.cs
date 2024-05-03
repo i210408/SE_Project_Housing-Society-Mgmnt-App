@@ -59,14 +59,34 @@ namespace UserInterfaceLayer
         protected void AddEvent_Click(object sender, EventArgs e)
         {
             var cntrllr = (Controller)Session["Controller"];
-            if(cntrllr.AddEventToCalender(TextBox1.Text, TextBox2.Text, (DateTime.Now).AddDays(Int32.Parse(TextBox3.Text))) == false)
+            if ((string.IsNullOrWhiteSpace(TextBox1.Text) == true) || (string.IsNullOrWhiteSpace(TextBox2.Text) == true) || (string.IsNullOrWhiteSpace(TextBox3.Text) == true))
             {
-                Label10.Text = "There is already an event on " + DateTime.Now.AddDays(Int32.Parse(TextBox3.Text));
+                Label11.Text = "";
+                Label10.Text = "Please fill all available textboxes.";
             }
             else
+            
             {
-                Response.Redirect("HomepageA.aspx");
+                int s;
+                if (int.TryParse(TextBox3.Text, out s))
+                {
+                    if (cntrllr.AddEventToCalender(TextBox1.Text, TextBox2.Text, (DateTime.Now).AddDays(s)) == false)
+                    {
+                        Label11.Text = "";
+                        Label10.Text = "There is already an event on " + DateTime.Now.AddDays(Int32.Parse(TextBox3.Text));
+                    }
+                    else
+                    {
+                        Label10.Text = "";
+                        Label11.Text = "Event successfully added!";
+                    }
+                }
+                else
+                {
+                    Label11.Text = "";
+                    Label10.Text = "Please put an integer number in the Days Till Event textbox.";
+                }
             }
         }
-    }
+        }
 }

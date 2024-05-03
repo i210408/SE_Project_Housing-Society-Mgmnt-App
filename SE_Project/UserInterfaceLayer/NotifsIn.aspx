@@ -46,7 +46,7 @@
     <br />
     <asp:Label ID="Label6" runat="server" Text="View All User Data"></asp:Label>
 </th>
-            <th id="Work" style="border:8px double midnightblue; border-radius:5px; width: 991px; height: 546px;">
+            <th id="Work" style="border:8px double midnightblue; border-radius:5px; width: 991px; height: 546px;vertical-align:top">
                 <label style="font-size:2.5vw;color:midnightblue;font-family:Arial, Helvetica, sans-serif"><u>Broadcast Notification</u></label>
                 <br />
                 <br />
@@ -55,6 +55,12 @@
                 <br />
                 <br />
                 <asp:Button ID="Bcast" runat="server" OnClick="Bcast_Click" Text="Broadcast" />
+                <br />
+                <br />
+                <asp:Label ID="Label7" runat="server" ForeColor="Red"></asp:Label>
+                <br />
+                <br />
+                <asp:Label ID="Label8" runat="server" ForeColor="Green"></asp:Label>
             </th>
         </tr>
     </table>

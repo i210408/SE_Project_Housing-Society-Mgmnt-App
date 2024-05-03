@@ -1,4 +1,4 @@
-﻿using BusinessLogicLayer;
+﻿ using BusinessLogicLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,12 +14,17 @@ namespace UserInterfaceLayer
         {
             if (Controller.ViewNotifications() != null)
             {
+                Label3.Text = "";
                 var listnotifs=Controller.ViewNotifications();
                 for(int i = 0;i< listnotifs.Count; i++)
                 {
                     Label3.Text = Label3.Text.ToString() + listnotifs[i].notificationDate + "-" + listnotifs[i].notificationText + "<br>";
                 }
                 
+            }
+            else
+            {
+                Label3.Text = "There are no notifications posted yet!";
             }
 
         }

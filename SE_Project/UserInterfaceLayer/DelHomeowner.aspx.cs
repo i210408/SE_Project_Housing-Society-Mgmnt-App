@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BusinessLogicLayer;
+using System.Reflection.Emit;
 
 namespace UserInterfaceLayer
 {
@@ -59,8 +60,27 @@ namespace UserInterfaceLayer
 
         protected void Delete_Click(object sender, EventArgs e)
         {
-            var controller = (Controller)Session["Controller"];
-            controller.DeleteHomeowner(UserDel.Text.ToString());
+            var cntrllr = (Controller)Session["Controller"];
+            if (string.IsNullOrWhiteSpace(UserDel.Text) == false)
+            {
+                if (cntrllr.validateUser(UserDel.Text)==true) {
+                    var controller = (Controller)Session["Controller"];
+                    controller.DeleteHomeowner(UserDel.Text.ToString());
+                    Label9.Text = "User Successfully Deleted!";
+                    Label8.Text = "";
+                }
+                else
+                {
+                    Label9.Text = "";
+                    Label8.Text = "Please input a valid Username";
+                }
+            }
+            else
+            {
+                Label9.Text= "";
+                Label8.Text = "Please fill in all available text boxes";
+             }
+            
         }
     }
     
