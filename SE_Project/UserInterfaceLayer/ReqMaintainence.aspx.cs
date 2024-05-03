@@ -40,10 +40,30 @@ namespace UserInterfaceLayer
             Response.Redirect("ViewCommCalandarH.aspx");
         }
 
+        protected void ImageButton8_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("ReqMaintainence.aspx");
+        }
+
         protected void Button1_Click(object sender, EventArgs e)
         {
             var cntrllr = (Controller)Session["Controller"];
-            cntrllr.ReqMaintainence(TextBox1.Text);
+            if (string.IsNullOrWhiteSpace(TextBox1.Text) == false)
+            {
+                if (cntrllr.ReqMaintainence(TextBox1.Text) == true)
+                {
+                    Label11.Text = "Request Submission was not successful.";
+                }
+                else
+                {
+                    Label12.Text = "Request Submission was successful!";
+                }
+            }
+            else
+            {
+                Label11.Text = "";
+                Label12.Text = "Please fill in all available text boxes.";
+            }
         }
     }
 }

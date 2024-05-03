@@ -16,9 +16,9 @@ namespace BusinessLogicLayer
             DB.IssueBillToHomeowner(userName, amount, issueDate, dueDate, reason);
         }
 
-        public static void PayBills(string userName)
+        public static bool PayBills(string userName)
         {
-            DB.PayBillOnline(userName);
+            return DB.PayBillOnline(userName);
         }
 
         public static List<string> RetrieveBills(string userName)

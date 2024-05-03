@@ -41,20 +41,35 @@
                 <asp:Label ID="Label9" runat="server" Text="Register for Facilities"></asp:Label>
 
             </th>
-            <th id="Work" style="border:8px double #CC5500; border-radius:5px; width: 991px; height: 579px;">
-                <label style="font-size:3vw;color:#F08269;font-family:Arial, Helvetica, sans-serif"><u>Homeowner Account Homepage</u></label>
-                <table style="margin:0 auto;text-align:center;">
-                    <tr><th style="font-size:20px"><u> User Data: </u></th></tr>
-                    <tr><td>
-                        <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
-                        </td></tr>
-                    <tr><td>Locale: DHA-II</td></tr>
-                    <tr><td >Status: Current Homeowner</td></tr>
-                </table>
-                <table style="margin:0 auto;text-align:center">
-                    <tr><th style="font-size:20px"><u> Sidebar Guide: </u></th></tr>
-                    <tr><td><label>For futher Questions and Queries, dial 2211</label></td></tr>
-                </table>
+            <th id="Work" style="border:8px double #CC5500; border-radius:5px; width: 991px; height: 579px;vertical-align:top">
+                <label style="font-size:3vw;color:#F08269;font-family:Arial, Helvetica, sans-serif"><u>Register for Facilities</u></label>
+                <br />
+                <br />
+                <br />
+                <asp:Label ID="Label10" runat="server" Text="Choose an available Facility from the ones currently available:"></asp:Label>
+                <br />
+                <asp:CheckBox ID="CheckBox1" runat="server" Text="Swimming Pool " />
+&nbsp;
+                <asp:CheckBox ID="CheckBox2" runat="server" Text="Tennis/Badminton Courts " />
+&nbsp;
+                <asp:CheckBox ID="CheckBox3" runat="server" Text="Gym" />
+&nbsp;
+                <asp:CheckBox ID="CheckBox4" runat="server" Text="Library" />
+                <br />
+                <br />
+                Please note the following fees for each of these facilities:<br />
+                Swimming Pool: 250/month per person<br />
+                Tennis/Badminton Courts: 200/moth per person<br />
+                Gym: 400/month per person<br />
+                Library: 300/month per person<br />
+                <br />
+                <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Register For Facility" />
+                <br />
+                <br />
+                <asp:Label ID="warning" runat="server" Style="color:red"></asp:Label>
+                <br />
+                <br />
+                <asp:Label ID="Label11" runat="server" ForeColor="Green"></asp:Label>
             </th>
         </tr>
     </table>

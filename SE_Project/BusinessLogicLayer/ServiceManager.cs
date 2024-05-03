@@ -9,9 +9,9 @@ namespace BusinessLogicLayer
 {
     internal class ServiceManager
     {
-        public static void RegisterService(string serviceName, string serviceDescription, decimal serviceCost)
+        public static void RegisterService(string username, string serviceName, string serviceDescription, decimal serviceCost)
         {
-            DB.RegisterService(serviceName, serviceDescription, serviceCost);
+            DB.RegisterService(username, serviceName, serviceDescription, serviceCost);
         }
 
         public static bool AssignWorker(string problem, string workerType)
@@ -19,9 +19,9 @@ namespace BusinessLogicLayer
             return DB.DispatchWorker(problem, workerType);
         }
 
-        public static void RegisterRequest(string problem, int id)
+        public static bool RegisterRequest(string problem, int id)
         {
-            DB.RegisterRequest(problem, id);
+            return DB.RegisterRequest(problem, id);
         }
     }
 }

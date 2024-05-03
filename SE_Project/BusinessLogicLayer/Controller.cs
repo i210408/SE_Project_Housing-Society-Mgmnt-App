@@ -81,10 +81,10 @@ namespace BusinessLogicLayer
             FeedbackManager.InsertFeedback(currentUser, serviceName, feedbackText, feedbackRating);
         }
         
-        public void ReqMaintainence(string problem)
+        public bool ReqMaintainence(string problem)
         {
             int hid = accountManager.currentUser.GetUserID();
-            ServiceManager.RegisterRequest(problem, hid);
+            return ServiceManager.RegisterRequest(problem, hid);
         }
 
 
@@ -174,17 +174,18 @@ namespace BusinessLogicLayer
 
         // Pay Bills.
 
-        public void PayBills()
+        public bool PayBills()
         {
             string userName = accountManager.currentUser.GetUserName();
-            BillsManager.PayBills(userName);
+            return BillsManager.PayBills(userName);
         }
 
         // Register Service.
 
-        public static void RegisterService(string serviceName, string serviceDescription, decimal serviceCost)
+        public void RegisterService(string serviceName, string serviceDescription, decimal serviceCost)
         {
-            ServiceManager.RegisterService(serviceName, serviceDescription, serviceCost);
+            string currentuser = accountManager.currentUser.GetUserName();
+            ServiceManager.RegisterService(currentuser, serviceName, serviceDescription, serviceCost);
         }
 
         // Assign Worker.

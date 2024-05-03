@@ -585,7 +585,7 @@ namespace DatabaseLayer
         public static bool PayBillOnline(string username)
         {
 
-            string updatePaymentStatusQuery = "UPDATE Bills SET payment_status = 'paid' WHERE username = @Username";
+            string updatePaymentStatusQuery = "UPDATE Bills SET payment_status = 'paid' WHERE username = @Username AND payment_status = 'unpaid";
 
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -670,10 +670,10 @@ namespace DatabaseLayer
 
 
         //register facilities
-        public static void RegisterService(string serviceName, string serviceDescription, decimal serviceCost)
+        public static void RegisterService(string username, string serviceName, string serviceDescription, decimal serviceCost)
         {
 
-            string insertServiceQuery = "INSERT INTO Services (service_name, service_description, service_cost) VALUES (@ServiceName, @ServiceDescription, @ServiceCost)";
+            string insertServiceQuery = "INSERT INTO Services (service_name, service_description, service_cost, username) VALUES (@ServiceName, @ServiceDescription, @ServiceCost, @Username)";
 
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -685,6 +685,7 @@ namespace DatabaseLayer
                     command.Parameters.AddWithValue("@ServiceName", serviceName);
                     command.Parameters.AddWithValue("@ServiceDescription", serviceDescription);
                     command.Parameters.AddWithValue("@ServiceCost", serviceCost);
+                    command.Parameters.AddWithValue("@Username", username);
 
 
                     connection.Open();
@@ -705,7 +706,7 @@ namespace DatabaseLayer
         }
 
         //register facilities
-        public static void RegisterRequest(string problem, int hid)
+        public static bool RegisterRequest(string problem, int hid)
         {
 
             string insertServiceQuery = "INSERT INTO Requests (problem, homeowner_id, status_problem) VALUES (@Problem, @HomeOwnerID, 'active')";
@@ -729,10 +730,12 @@ namespace DatabaseLayer
                         int rowsAffected = command.ExecuteNonQuery();
 
                         Console.WriteLine($"{rowsAffected} service(s) registered.");
+                        return true;
                     }
                     catch (Exception ex)
                     {
                         Console.WriteLine($"An error occurred: {ex.Message}");
+                        return false;
                     }
                 }
             }
