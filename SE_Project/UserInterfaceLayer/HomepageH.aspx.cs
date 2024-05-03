@@ -43,5 +43,10 @@ namespace UserInterfaceLayer
         {
             Response.Redirect("ReqMaintainence.aspx");
         }
+
+        protected void ImageButton7_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("RegisterFacilities.aspx");
+        }
     }
 }

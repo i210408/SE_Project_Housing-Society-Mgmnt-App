@@ -1,36 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\lunas\\Documents\\NewFolder3\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{48F7965C-7B65-40E1-927F-F581D7BDBA73}|UserInterfaceLayer\\UserInterfaceLayer.csproj|c:\\users\\lunas\\documents\\newfolder3\\se_project_housing-society-mgmnt-app\\se_project\\userinterfacelayer\\registerfacilities.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{48F7965C-7B65-40E1-927F-F581D7BDBA73}|UserInterfaceLayer\\UserInterfaceLayer.csproj|solutionrelative:userinterfacelayer\\registerfacilities.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9E623CFF-E5FE-44FA-A872-D749562C8785}|BusinessLogicLayer\\BusinessLogicLayer.csproj|c:\\users\\lunas\\documents\\newfolder3\\se_project_housing-society-mgmnt-app\\se_project\\businesslogiclayer\\controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9E623CFF-E5FE-44FA-A872-D749562C8785}|BusinessLogicLayer\\BusinessLogicLayer.csproj|solutionrelative:businesslogiclayer\\controller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9E623CFF-E5FE-44FA-A872-D749562C8785}|BusinessLogicLayer\\BusinessLogicLayer.csproj|c:\\users\\lunas\\documents\\newfolder3\\se_project_housing-society-mgmnt-app\\se_project\\businesslogiclayer\\servicemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9E623CFF-E5FE-44FA-A872-D749562C8785}|BusinessLogicLayer\\BusinessLogicLayer.csproj|solutionrelative:businesslogiclayer\\servicemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8237C42E-7D31-41F5-8719-B121F6EE62AE}|DatabaseLayer\\DatabaseLayer.csproj|c:\\users\\lunas\\documents\\newfolder3\\se_project_housing-society-mgmnt-app\\se_project\\databaselayer\\db.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8237C42E-7D31-41F5-8719-B121F6EE62AE}|DatabaseLayer\\DatabaseLayer.csproj|solutionrelative:databaselayer\\db.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{48F7965C-7B65-40E1-927F-F581D7BDBA73}|UserInterfaceLayer\\UserInterfaceLayer.csproj|c:\\users\\lunas\\documents\\newfolder3\\se_project_housing-society-mgmnt-app\\se_project\\userinterfacelayer\\registerfacilities.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{48F7965C-7B65-40E1-927F-F581D7BDBA73}|UserInterfaceLayer\\UserInterfaceLayer.csproj|solutionrelative:userinterfacelayer\\registerfacilities.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{48F7965C-7B65-40E1-927F-F581D7BDBA73}|UserInterfaceLayer\\UserInterfaceLayer.csproj|C:\\Users\\lunas\\Documents\\NewFolder3\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\userinterfacelayer\\homepageh.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{48F7965C-7B65-40E1-927F-F581D7BDBA73}|UserInterfaceLayer\\UserInterfaceLayer.csproj|solutionrelative:userinterfacelayer\\homepageh.aspx.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{48F7965C-7B65-40E1-927F-F581D7BDBA73}|UserInterfaceLayer\\UserInterfaceLayer.csproj|C:\\Users\\lunas\\Documents\\NewFolder3\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\userinterfacelayer\\homepageh.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
-      "RelativeMoniker": "D:0:0:{48F7965C-7B65-40E1-927F-F581D7BDBA73}|UserInterfaceLayer\\UserInterfaceLayer.csproj|solutionrelative:userinterfacelayer\\homepageh.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 1,
@@ -38,101 +9,8 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": -1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "HomepageH.aspx",
-              "DocumentMoniker": "C:\\Users\\lunas\\Documents\\NewFolder3\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\UserInterfaceLayer\\HomepageH.aspx",
-              "RelativeDocumentMoniker": "UserInterfaceLayer\\HomepageH.aspx",
-              "ToolTip": "C:\\Users\\lunas\\Documents\\NewFolder3\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\UserInterfaceLayer\\HomepageH.aspx",
-              "RelativeToolTip": "UserInterfaceLayer\\HomepageH.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-05-01T13:57:29.034Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "HomepageH.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\lunas\\Documents\\NewFolder3\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\UserInterfaceLayer\\HomepageH.aspx.cs",
-              "RelativeDocumentMoniker": "UserInterfaceLayer\\HomepageH.aspx.cs",
-              "ToolTip": "C:\\Users\\lunas\\Documents\\NewFolder3\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\UserInterfaceLayer\\HomepageH.aspx.cs",
-              "RelativeToolTip": "UserInterfaceLayer\\HomepageH.aspx.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-01T13:57:30.873Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "Controller.cs",
-              "DocumentMoniker": "C:\\Users\\lunas\\Documents\\NewFolder3\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\BusinessLogicLayer\\Controller.cs",
-              "RelativeDocumentMoniker": "BusinessLogicLayer\\Controller.cs",
-              "ToolTip": "C:\\Users\\lunas\\Documents\\NewFolder3\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\BusinessLogicLayer\\Controller.cs",
-              "RelativeToolTip": "BusinessLogicLayer\\Controller.cs",
-              "ViewState": "AQIAAEwAAAAAAAAAAAAAAFcAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-01T18:50:33.262Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ServiceManager.cs",
-              "DocumentMoniker": "C:\\Users\\lunas\\Documents\\NewFolder3\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\BusinessLogicLayer\\ServiceManager.cs",
-              "RelativeDocumentMoniker": "BusinessLogicLayer\\ServiceManager.cs",
-              "ToolTip": "C:\\Users\\lunas\\Documents\\NewFolder3\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\BusinessLogicLayer\\ServiceManager.cs",
-              "RelativeToolTip": "BusinessLogicLayer\\ServiceManager.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-01T19:00:47.964Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "DB.cs",
-              "DocumentMoniker": "C:\\Users\\lunas\\Documents\\NewFolder3\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\DatabaseLayer\\DB.cs",
-              "RelativeDocumentMoniker": "DatabaseLayer\\DB.cs",
-              "ToolTip": "C:\\Users\\lunas\\Documents\\NewFolder3\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\DatabaseLayer\\DB.cs",
-              "RelativeToolTip": "DatabaseLayer\\DB.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-01T19:00:30.329Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "RegisterFacilities.aspx.cs",
-              "DocumentMoniker": "C:\\Users\\lunas\\Documents\\NewFolder3\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\UserInterfaceLayer\\RegisterFacilities.aspx.cs",
-              "RelativeDocumentMoniker": "UserInterfaceLayer\\RegisterFacilities.aspx.cs",
-              "ToolTip": "C:\\Users\\lunas\\Documents\\NewFolder3\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\UserInterfaceLayer\\RegisterFacilities.aspx.cs",
-              "RelativeToolTip": "UserInterfaceLayer\\RegisterFacilities.aspx.cs",
-              "ViewState": "AQIAACYAAAAAAAAAAAAswAsAAAA8AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-01T18:55:54.88Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "RegisterFacilities.aspx",
-              "DocumentMoniker": "C:\\Users\\lunas\\Documents\\NewFolder3\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\UserInterfaceLayer\\RegisterFacilities.aspx",
-              "RelativeDocumentMoniker": "UserInterfaceLayer\\RegisterFacilities.aspx",
-              "ToolTip": "C:\\Users\\lunas\\Documents\\NewFolder3\\SE_Project_Housing-Society-Mgmnt-App\\SE_Project\\UserInterfaceLayer\\RegisterFacilities.aspx",
-              "RelativeToolTip": "UserInterfaceLayer\\RegisterFacilities.aspx",
-              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
-              "WhenOpened": "2024-05-01T18:54:30.095Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"

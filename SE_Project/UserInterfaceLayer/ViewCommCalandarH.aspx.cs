@@ -16,11 +16,16 @@ namespace UserInterfaceLayer
 
             if (listcalan.Count!= 0)
             {
+                Calandarcontents.Text = "";
                 for (int i = 0; i < listcalan.Count; i++)
                 {
                     Calandarcontents.Text = Calandarcontents.Text.ToString() + listcalan[i].Item3 + " - " + listcalan[i].Item1 + " : " + listcalan[i].Item2 + "<br>";
                 }
 
+            }
+            else
+            {
+                Calandarcontents.Text = "There are no events listed for this month!";
             }
         }
 
@@ -42,6 +47,16 @@ namespace UserInterfaceLayer
         protected void ImageButton4_Click(object sender, ImageClickEventArgs e)
         {
             Response.Redirect("SubmitFeedback.aspx");
+        }
+
+        protected void ImageButton6_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("ViewCommCalandarH.aspx");
+        }
+
+        protected void ImageButton8_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("ReqMaintainence.aspx");
         }
     }
 }

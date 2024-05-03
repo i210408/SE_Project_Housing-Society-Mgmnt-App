@@ -586,8 +586,7 @@ VALUES
     ('other', 'General maintenance', 'free');
 
 	select * from Maintenance
-
-
+	select * from PollResponses
 
 -- Drop the existing Request table if it exists
 IF OBJECT_ID('dbo.Request', 'U') IS NOT NULL

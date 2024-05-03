@@ -15,6 +15,7 @@ namespace UserInterfaceLayer
         {
             if (Controller.ViewNotifications() != null)
             {
+                Label3.Text = "";
                 var listnotifs = Controller.ViewNotifications();
                 for (int i = 0; i < listnotifs.Count; i++)
                 {
@@ -22,10 +23,39 @@ namespace UserInterfaceLayer
                 }
 
             }
+            else
+            {
+                Label3.Text = "There are no Alerts listed yet! Keep an eye out, though!";
+            }
         }
         protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
         {
             Response.Redirect("PayBills.aspx");
+        }
+
+        protected void ImageButton2_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("ViewAlerts.aspx");
+        }
+
+        protected void ImageButton3_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("RegisterVisitors.aspx");
+        }
+
+        protected void ImageButton4_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("SubmitFeedback.aspx");
+        }
+
+        protected void ImageButton6_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("ViewCommCalandarH.aspx");
+        }
+
+        protected void ImageButton8_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("ReqMaintainence.aspx");
         }
 
     }
