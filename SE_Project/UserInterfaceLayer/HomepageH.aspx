@@ -40,6 +40,12 @@
                 <br />
                 <asp:Label ID="Label9" runat="server" Text="Register for Facilities"></asp:Label>
 
+                <br />
+                <br />
+                <asp:ImageButton ID="ImageButton9" src="ViewNotifsicon.png" runat="server" OnClick="ImageButton9_Click" />
+                <br />
+                <asp:Label ID="Label10" runat="server" Text="Reservations"></asp:Label>
+
             </th>
             <th id="Work" style="border:8px double #CC5500; border-radius:5px; width: 991px; height: 579px;">
                 <label style="font-size:3vw;color:#F08269;font-family:Arial, Helvetica, sans-serif"><u>Homeowner Account Homepage</u></label>

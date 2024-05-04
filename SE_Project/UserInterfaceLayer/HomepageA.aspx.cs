@@ -55,5 +55,20 @@ namespace UserInterfaceLayer
             Response.Redirect("DelHomeowner.aspx");
 
         }
+
+        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("ViewFeedback.aspx");
+        }
+
+        protected void ImageButton2_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("DispatchMaintainence.aspx");
+        }
+
+        protected void ImageButton3_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("Createpoll.aspx");
+        }
     }
 }

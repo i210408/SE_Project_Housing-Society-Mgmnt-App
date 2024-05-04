@@ -5,7 +5,7 @@
     <table  style="background-color:#95d5d7;margin:0 auto;text-align:center;border:8px double;border-radius:5px;border-color:midnightblue;color:darkblue;font-size:1.25vw">
         <tr>
             <th id="Sidebar" style="color:#F08269;border:8px double #2386C2; border-radius:5px; width: 221px; height: 579px;" >
-    <asp:ImageButton ID="ImageButton1" src="PayBillsicon.png" runat="server" OnClick="ImageButton1_Click" />
+        <asp:ImageButton ID="ImageButton1" src="PayBillsicon.png" runat="server" OnClick="ImageButton1_Click" />
     <br />
     <asp:Label ID="Label2" runat="server" Text="Pay Bills"></asp:Label>
     <br />
@@ -36,9 +36,15 @@
     <asp:Label ID="Label8" runat="server" Text="Request Maintainence"></asp:Label>
     <br />
     <br />
-    <asp:ImageButton ID="ImageButton7" src="Registerfacilitiesicon.png" runat="server" />
+    <asp:ImageButton ID="ImageButton7" src="Registerfacilitiesicon.png" runat="server" OnClick="ImageButton7_Click" />
     <br />
     <asp:Label ID="Label9" runat="server" Text="Register for Facilities"></asp:Label>
+
+    <br />
+    <br />
+    <asp:ImageButton ID="ImageButton9" runat="server" OnClick="ImageButton9_Click" />
+    <br />
+    <asp:Label ID="Label10" runat="server" Text="Reservations"></asp:Label>
 
 </th>
             <th id="Work" style="border:8px double midnightblue; border-radius:5px; width: 991px; height: 546px;vertical-align:top">
