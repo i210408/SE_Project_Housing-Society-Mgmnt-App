@@ -14,20 +14,24 @@ namespace UserInterfaceLayer
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         protected void LoginH_Click(object sender, EventArgs e)
         {
             var controller1 = new Controller();
             string Name = NameH.Text.ToString();
-                string Pass = PasswH.Text.ToString();
-                if (controller1.Login(Name, Pass) == true)
-                {
+            string Pass = PasswH.Text.ToString();
+            if (controller1.Login(Name, Pass) == true)
+            {
                 this.Session["Username"] = NameH.Text.ToString();
-                this.Session["Password"]= PasswH.Text.ToString();
+                this.Session["Password"] = PasswH.Text.ToString();
                 this.Session["Controller"] = controller1;
-                if (Homeowner.Checked == true)
+                if (Homeowner.Checked == true && Admin.Checked == true)
+                {
+                    WarningLabel.Text = "Please only choose one of Homeowner or Admin.";
+                }
+                else if (Homeowner.Checked == true)
                 {
                     Response.Redirect("HomepageH.aspx");
                 }
@@ -39,12 +43,12 @@ namespace UserInterfaceLayer
                 {
                     WarningLabel.Text = "Choose Admin or Homeowner";
                 }
-                }
-                else
-                {
+            }
+            else
+            {
                 WarningLabel.Text = "Username/Password Invalid.";
-                }
-            
+            }
+
         }
 
         protected void SignUpH_Click(object sender, EventArgs e)
@@ -53,13 +57,28 @@ namespace UserInterfaceLayer
             string Name = NameHS.Text.ToString();
             string Pass = PasswHS.Text.ToString();
             string Email = EmailHS.Text.ToString();
-            Session[0] = NameHS.Text.ToString();
-            Session[1] = EmailHS.Text.ToString();
-            Session[2] = controller1;
-            //Now go to About as the Homepage
-            //Needs to be changed as per new signup
+            Session["Username"] = NameHS.Text.ToString();
+            Session["Email"] = EmailHS.Text.ToString();
+            Session["Controller"] = controller1;
+            if (Homeowner0.Checked == true && Admin0.Checked == true)
+            {
+                WarningLabel2.Text = "Please only choose one of Homeowner or Admin.";
+            }
+            else if (Homeowner0.Checked == true)
+            {
+                controller1.SignUp(Name, Pass, Email, "homeowner");
+                Response.Redirect("HomepageH.aspx");
+            }
+            else if (Admin0.Checked == true)
+            {
+                controller1.SignUp(Name, Pass, Email, "admin");
+                Response.Redirect("HomepageA.aspx");
+            }
+            else
+            {
+                WarningLabel2.Text = "Choose Admin or Homeowner";
+            }
 
         }
-
     }
 }

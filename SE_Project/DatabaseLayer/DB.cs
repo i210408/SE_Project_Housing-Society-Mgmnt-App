@@ -104,7 +104,7 @@ namespace DatabaseLayer
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string retrieveAllFeedbackQuery = "SELECT f.feedback_text, f.feedback_rating, s.service_name FROM Feedback f INNER JOIN Services s ON f.service_id = s.service_id";
+                string retrieveAllFeedbackQuery = "SELECT * from FEEDBACK";
 
                 SqlCommand command = new SqlCommand(retrieveAllFeedbackQuery, connection);
 
@@ -116,7 +116,7 @@ namespace DatabaseLayer
                 {
                     while (reader.Read())
                     {
-                        string feedback = $"Service: {reader.GetString(2)}, Rating: {reader.GetInt32(1)}, Feedback: {reader.GetString(0)}";
+                        string feedback = $"Service: {reader.GetString(2)}, Rating: {reader.GetInt32(4)}, Feedback: {reader.GetString(3)}";
                         feedbacks.Add(feedback);
                     }
                 }
@@ -709,7 +709,7 @@ namespace DatabaseLayer
         public static bool RegisterRequest(string problem, int hid)
         {
 
-            string insertServiceQuery = "INSERT INTO Requests (problem, homeowner_id, status_problem) VALUES (@Problem, @HomeOwnerID, 'active')";
+            string insertServiceQuery = "INSERT INTO Requests (problem, homeowner_id) VALUES (@Problem, @HomeOwnerID)";
 
 
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -742,8 +742,31 @@ namespace DatabaseLayer
         }
 
 
+        public static List<string> getallrequests()
+        {
+            List<string> data = new List<string>();
 
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string retrieveHomeOwnerDataQuery = "SELECT * from requests";
 
+                SqlCommand command = new SqlCommand(retrieveHomeOwnerDataQuery, connection);
+
+                connection.Open();
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        data.Add("ID:" + reader.GetInt32(2).ToString()+ "  Problem:" + reader.GetString(1));
+                    }
+                }
+            }
+
+            return data;
+        }
 
         public static bool DispatchWorker(string problem, string workerType)
         {
@@ -774,7 +797,7 @@ namespace DatabaseLayer
                         }
 
                         // Delete the corresponding entry from the Request table
-                        string deleteRequestQuery = "DELETE FROM Request WHERE problem = @Problem";
+                        string deleteRequestQuery = "DELETE FROM Requests WHERE problem = @Problem";
                         using (SqlCommand deleteCommand = new SqlCommand(deleteRequestQuery, connection))
                         {
                             deleteCommand.Parameters.AddWithValue("@Problem", problem);

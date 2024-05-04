@@ -45,9 +45,25 @@
                 <asp:ImageButton ID="ViewUserData" src="VeiwUserDataIcon.png" runat="server" OnClick="ViewUserData_Click" />
                 <br />
                 <asp:Label ID="Label6" runat="server" Text="View All User Data"></asp:Label>
+                <br />
+                <br />
+                <asp:ImageButton ID="ImageButton1" runat="server" src="VeiwFeedbackicon.png" OnClick="ImageButton1_Click" />
+                <br />
+                <asp:Label ID="Label7" runat="server" Text="View Feedback"></asp:Label>
+                <br />
+                <br />
+                <asp:ImageButton ID="ImageButton2" runat="server" src="dispatchworkersicon.png" OnClick="ImageButton2_Click" />
+                <br />
+                <asp:Label ID="Label8" runat="server" Text="Dispatch Maintainenece Workers"></asp:Label>
+                <br />
+                <br />
+                <asp:ImageButton ID="ImageButton3" src="createpollicon.png" runat="server" OnClick="ImageButton3_Click" />
+                <br />
+                <asp:Label ID="Label9" runat="server" Text="Create Poll"></asp:Label>
+                <br />
             </th>
 
-            <th id="Work" style="border:8px double midnightblue; border-radius:5px; width: 991px; height: 546px;">
+            <th id="Work" style="border:8px double midnightblue; border-radius:5px; width: 991px; height: 546px;vertical-align:top">
                 <label style="font-size:3vw;color:midnightblue;font-family:Arial, Helvetica, sans-serif"><u>Admin Account Homepage</u></label>
                 <table style="margin:0 auto;text-align:center">
                     <tr><th style="font-size:20px"><u> Sidebar Guide: </u></th></tr>

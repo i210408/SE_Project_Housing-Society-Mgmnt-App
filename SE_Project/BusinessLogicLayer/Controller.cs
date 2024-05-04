@@ -202,6 +202,11 @@ namespace BusinessLogicLayer
 
         // View Bills.
 
+        public static List<string> GetRequests()
+        {
+            return ServiceManager.GetAllRequests();
+        }
+
         public List<string> ViewBills()
         {
             string userName = accountManager.currentUser.GetUserName();
