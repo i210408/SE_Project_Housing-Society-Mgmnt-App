@@ -36,7 +36,7 @@
     <asp:Label ID="Label8" runat="server" Text="Request Maintainence"></asp:Label>
     <br />
     <br />
-    <asp:ImageButton ID="ImageButton7" src="Registerfacilitiesicon.png" runat="server" />
+    <asp:ImageButton ID="ImageButton7" src="Registerfacilitiesicon.png" runat="server" OnClick="ImageButton7_Click" />
     <br />
     <asp:Label ID="Label9" runat="server" Text="Register for Facilities"></asp:Label>
 

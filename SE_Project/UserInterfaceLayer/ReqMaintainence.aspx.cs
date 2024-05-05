@@ -65,5 +65,10 @@ namespace UserInterfaceLayer
                 Label12.Text = "Please fill in all available text boxes.";
             }
         }
+
+        protected void ImageButton7_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("RegisterFacilities.aspx");
+        }
     }
 }

@@ -47,10 +47,20 @@
                 <asp:Label ID="Label6" runat="server" Text="View All User Data"></asp:Label>
             </th>
 
-            <th id="Work" style="border:8px double midnightblue; border-radius:5px; width: 991px; height: 546px;">
+            <th id="Work" style="border:8px double midnightblue; border-radius:5px; width: 991px; height: 546px;vertical-align:top">
                 <label style="font-size:3vw;color:midnightblue;font-family:Arial, Helvetica, sans-serif"><u>Admin Account Homepage</u></label>
                 <table style="margin:0 auto;text-align:center">
-                    <tr><th style="font-size:20px"><u> Sidebar Guide: </u></th></tr>
+                    <tr style="font-size:25px"><th ><u> Sidebar Guide: </u></th></tr>
+                        <tr><td><label>Delete Homeowner: Delete Homeowner Account Permenantly</label></td></tr>
+                        <tr><td><label>Issue Bills-Issue Utility and Affiliate Utility Company Bills to Homeowners</label></td></tr>
+                        <tr><td><label>Broadcast Notifications: Broadcast Immediate Danger Warnings, Advertisements, or Neighbourhood Alerts to Homeowners</label></td></tr>
+                        <tr><td><label>View Notifications: View the Broadcasted Notifications</label></td></tr>
+                        <tr><td><label>Change Password: Change one's own Account Password</label></td></tr>
+                        <tr><td><label>Add To Community Calandar: Add an event to the community calendar</label></td></tr>
+                        <tr><td><label>View Community Calendar: View the the Community Calendar</label></td></tr>
+                        <tr><td><label>View User Data: View All User Data, including Usernames and more</label></td></tr>
+                    
+                        <tr><td><label> </label></td></tr>
                     <tr><td><label>For futher Questions and Queries, dial 2211</label></td></tr>
                 </table>
             </th>

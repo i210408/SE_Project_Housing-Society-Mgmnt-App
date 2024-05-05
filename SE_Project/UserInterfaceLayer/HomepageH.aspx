@@ -41,7 +41,7 @@
                 <asp:Label ID="Label9" runat="server" Text="Register for Facilities"></asp:Label>
 
             </th>
-            <th id="Work" style="border:8px double #CC5500; border-radius:5px; width: 991px; height: 579px;">
+            <th id="Work" style="border:8px double #CC5500; border-radius:5px; width: 991px; height: 579px;vertical-align:top">
                 <label style="font-size:3vw;color:#F08269;font-family:Arial, Helvetica, sans-serif"><u>Homeowner Account Homepage</u></label>
                 <table style="margin:0 auto;text-align:center;">
                     <tr><th style="font-size:20px"><u> User Data: </u></th></tr>
@@ -50,9 +50,18 @@
                         </td></tr>
                     <tr><td>Locale: DHA-II</td></tr>
                     <tr><td >Status: Current Homeowner</td></tr>
+                    <tr><td> </td></tr>
                 </table>
                 <table style="margin:0 auto;text-align:center">
-                    <tr><th style="font-size:20px"><u> Sidebar Guide: </u></th></tr>
+                    <tr style="font-size:25px"><th ><u> Sidebar Guide: </u></th></tr>
+                    
+                    <tr><td><label>Pay Bills: Pay Utility of Affiliate Company Bills and Fees online</label></td></tr>
+                    <tr><td><label>View Notifications: To view immediate danger notifications, advertisements or outage warnings sent by Admin</label></td></tr>
+                    <tr><td><label>Register Visitors: To register the names of visitors a resident has allowed into the society</label></td></tr>
+                    <tr><td><label>Submit Feedback: Submit Complaints or Feedback about facilities, mantainence, and the society overall for the Admin users to be aware of</label></td></tr>
+                    <tr><td><label>View Community Calendar: To see upcoming events and their date in the community</label></td></tr>
+                    <tr><td><label>Request Maintenaince: Request for a maintenance worker to be sent to your home to fix any conceivable home problem</label></td></tr>
+                    <tr><td><label>Register for Facilities: An online, hassle-free method for a Homeowner to sign up for facilities offered by the housing society</label></td></tr>
                     <tr><td><label>For futher Questions and Queries, dial 2211</label></td></tr>
                 </table>
             </th>
