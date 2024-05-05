@@ -14,12 +14,6 @@ namespace UserInterfaceLayer
         {
 
         }
-        protected void DelH_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("DelHomeowner.aspx");
-
-        }
-
         protected void IssueB_Click(object sender, ImageClickEventArgs e)
         {
             Response.Redirect("IssueBills.aspx");
@@ -53,6 +47,21 @@ namespace UserInterfaceLayer
         protected void ViewUserData_Click(object sender, ImageClickEventArgs e)
         {
             Response.Redirect("ViewUserData.aspx");
+        }
+
+        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("ViewFeedback.aspx");
+        }
+
+        protected void ImageButton2_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("DispatchMaintainence.aspx");
+        }
+
+        protected void ImageButton3_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("Createpoll.aspx");
         }
         protected void Bill_Click(object sender, EventArgs e)
         {

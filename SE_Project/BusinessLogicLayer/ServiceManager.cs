@@ -23,5 +23,10 @@ namespace BusinessLogicLayer
         {
             return DB.RegisterRequest(problem, id);
         }
+
+        public static List<string> GetAllRequests()
+        {
+            return DB.getallrequests();
+        }
     }
 }

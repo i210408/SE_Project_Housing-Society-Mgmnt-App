@@ -5,7 +5,7 @@
     <table  style="background-color:powderblue;margin:0 auto;text-align:center;border:8px double;border-radius:5px;border-color:#fd7702;color:darkblue;font-size:1.25vw">
         <tr>
             <th id="Sidebar" style="color:#F08269;border:8px double #2386C2; border-radius:5px; width: 221px; height: 579px;" >
-    <asp:ImageButton ID="ImageButton1" src="PayBillsicon.png" runat="server" OnClick="ImageButton1_Click" />
+       <asp:ImageButton ID="ImageButton1" src="PayBillsicon.png" runat="server" OnClick="ImageButton1_Click" />
     <br />
     <asp:Label ID="Label2" runat="server" Text="Pay Bills"></asp:Label>
     <br />
@@ -39,6 +39,12 @@
     <asp:ImageButton ID="ImageButton7" src="Registerfacilitiesicon.png" runat="server" OnClick="ImageButton7_Click" />
     <br />
     <asp:Label ID="Label9" runat="server" Text="Register for Facilities"></asp:Label>
+
+    <br />
+    <br />
+    <asp:ImageButton ID="ImageButton9" runat="server" OnClick="ImageButton9_Click" />
+    <br />
+    <asp:Label ID="Label1" runat="server" Text="Reservations"></asp:Label>
 
 </th>
             <th id="Work" style="border:8px double #CC5500; border-radius:5px; width: 991px; height: 579px;vertical-align:top">

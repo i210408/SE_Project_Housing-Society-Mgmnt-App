@@ -5,7 +5,6 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BusinessLogicLayer;
 using System.Reflection.Emit;
 
 namespace UserInterfaceLayer
@@ -56,6 +55,21 @@ namespace UserInterfaceLayer
         {
             Response.Redirect("DelHomeowner.aspx");
 
+        }
+
+        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("ViewFeedback.aspx");
+        }
+
+        protected void ImageButton2_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("DispatchMaintainence.aspx");
+        }
+
+        protected void ImageButton3_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("Createpoll.aspx");
         }
 
         protected void Delete_Click(object sender, EventArgs e)

@@ -565,8 +565,8 @@ IF OBJECT_ID('dbo.Maintenance', 'U') IS NOT NULL
     DROP TABLE dbo.Maintenance;
 
 
-
-
+	use df
+	drop table maintainence
 
 	-- Create the Maintenance table with worker_id, worker_type, problem, and status columns
 CREATE TABLE Maintenance (
@@ -579,11 +579,11 @@ CREATE TABLE Maintenance (
 -- Insert random data into the Maintenance table
 INSERT INTO Maintenance (worker_type, problem, status)
 VALUES 
-    ('plumber', 'Leaking pipes', 'free'),
-    ('electrician', 'Faulty wiring', 'available'),
-    ('painter', 'Wall painting', 'free'),
-    ('plumber', 'Clogged drain', 'available'),
-    ('other', 'General maintenance', 'free');
+    ('plumber', 'leaking pipes', 'free'),
+    ('electrician', 'faulty wiring', 'available'),
+    ('painter', 'wall painting', 'free'),
+    ('plumber', 'clogged drain', 'available'),
+    ('other', 'general maintenance', 'free');
 
 	select * from Maintenance
 	select * from PollResponses

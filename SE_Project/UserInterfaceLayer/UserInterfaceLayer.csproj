@@ -104,6 +104,8 @@
   <ItemGroup>
     <Content Include="AddToCalandar.aspx" />
     <Content Include="ChangePassword.aspx" />
+    <Content Include="Createpoll.aspx" />
+    <Content Include="DispatchMaintainence.aspx" />
     <Content Include="HomepageH.aspx" />
     <Content Include="DelHomeowner.aspx" />
     <Content Include="Content\bootstrap-grid.css" />
@@ -130,6 +132,7 @@
     <Content Include="RegisterFacilities.aspx" />
     <Content Include="RegisterVisitors.aspx" />
     <Content Include="ReqMaintainence.aspx" />
+    <Content Include="Reservation.aspx" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -194,6 +197,7 @@
     <Content Include="ViewAlerts.aspx" />
     <Content Include="ViewCommCal.aspx" />
     <Content Include="ViewCommCalandarH.aspx" />
+    <Content Include="ViewFeedback.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="ViewUserData.aspx" />
     <Content Include="Web.config" />
@@ -216,6 +220,20 @@
     </Compile>
     <Compile Include="ChangePassword.aspx.designer.cs">
       <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Createpoll.aspx.cs">
+      <DependentUpon>Createpoll.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Createpoll.aspx.designer.cs">
+      <DependentUpon>Createpoll.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DispatchMaintainence.aspx.cs">
+      <DependentUpon>DispatchMaintainence.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DispatchMaintainence.aspx.designer.cs">
+      <DependentUpon>DispatchMaintainence.aspx</DependentUpon>
     </Compile>
     <Compile Include="HomepageH.aspx.cs">
       <DependentUpon>HomepageH.aspx</DependentUpon>
@@ -271,6 +289,13 @@
     <Compile Include="ReqMaintainence.aspx.designer.cs">
       <DependentUpon>ReqMaintainence.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reservation.aspx.cs">
+      <DependentUpon>Reservation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reservation.aspx.designer.cs">
+      <DependentUpon>Reservation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -312,6 +337,13 @@
     </Compile>
     <Compile Include="ViewCommCalandarH.aspx.designer.cs">
       <DependentUpon>ViewCommCalandarH.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewFeedback.aspx.cs">
+      <DependentUpon>ViewFeedback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewFeedback.aspx.designer.cs">
+      <DependentUpon>ViewFeedback.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
